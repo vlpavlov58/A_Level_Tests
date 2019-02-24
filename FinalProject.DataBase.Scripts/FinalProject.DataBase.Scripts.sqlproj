@@ -76,5 +76,6 @@
     <Build Include="dbo\Tables\Group.sql" />
     <Build Include="dbo\Tables\Course.sql" />
     <Build Include="dbo\Tables\Answer.sql" />
+    <Build Include="dbo\Tables\QuestionType.sql" />
   </ItemGroup>
 </Project>

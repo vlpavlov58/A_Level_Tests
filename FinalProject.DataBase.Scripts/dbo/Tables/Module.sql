@@ -2,7 +2,9 @@
     [Id]             INT IDENTITY (1, 1) NOT NULL,
     [CourseId]       INT NULL,
     [QuatityLessons] INT NULL,
-    [ThemeId]        INT NULL,
-    CONSTRAINT [PK_Module] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_Module] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Module_Course] FOREIGN KEY ([CourseId]) REFERENCES [dbo].[Course] ([Id])
 );
+
+
 
