@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.BusinessLogic"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.Models", "FinalProject.Models\FinalProject.Models.csproj", "{7D46F3B4-E068-4544-B145-320B7373BFE2}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FinalProject.DataBase.Scripts", "FinalProject.DataBase.Scripts\FinalProject.DataBase.Scripts.sqlproj", "{A1FA258A-613E-4365-A8AD-D6581F0A61EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{7D46F3B4-E068-4544-B145-320B7373BFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D46F3B4-E068-4544-B145-320B7373BFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D46F3B4-E068-4544-B145-320B7373BFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FA258A-613E-4365-A8AD-D6581F0A61EB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
