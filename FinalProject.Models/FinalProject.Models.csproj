@@ -41,10 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\Answer.cs" />
+    <Compile Include="DataModels\Course.cs" />
+    <Compile Include="DataModels\Group.cs" />
+    <Compile Include="DataModels\Module.cs" />
+    <Compile Include="DataModels\Question.cs" />
+    <Compile Include="DataModels\Student.cs" />
+    <Compile Include="DataModels\Teacher.cs" />
+    <Compile Include="DataModels\Test.cs" />
+    <Compile Include="DataModels\Theme.cs" />
+    <Compile Include="DataModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
