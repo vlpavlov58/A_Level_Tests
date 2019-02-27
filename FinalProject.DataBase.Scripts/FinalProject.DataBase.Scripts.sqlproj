@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\UserType.sql" />
@@ -69,13 +70,12 @@
     <Build Include="dbo\Tables\Test.sql" />
     <Build Include="dbo\Tables\Teacher.sql" />
     <Build Include="dbo\Tables\Student.sql" />
-    <Build Include="dbo\Tables\QuestionAnswer.sql" />
     <Build Include="dbo\Tables\Question.sql" />
-    <Build Include="dbo\Tables\ModuleTheme.sql" />
     <Build Include="dbo\Tables\Module.sql" />
     <Build Include="dbo\Tables\Group.sql" />
     <Build Include="dbo\Tables\Course.sql" />
     <Build Include="dbo\Tables\Answer.sql" />
     <Build Include="dbo\Tables\QuestionType.sql" />
+    <Build Include="Security\FinalProject.sql" />
   </ItemGroup>
 </Project>
