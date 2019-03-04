@@ -1,5 +1,8 @@
 ﻿CREATE TABLE [dbo].[CourseTeacher] (
-    [TeacherId] INT NULL,
-    [CourseId]  INT NULL
+    [TeacherId] INT NOT NULL,
+    [CourseId]  INT NOT NULL,
+    CONSTRAINT [PK_CourseTeacher] PRIMARY KEY CLUSTERED ([TeacherId] ASC, [CourseId] ASC)
 );
+
+
 

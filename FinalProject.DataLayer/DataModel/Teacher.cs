@@ -7,28 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.EFDataLayer.DataModels
+namespace FinalProject.DataLayer.DataModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Group
+    public partial class Teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Group()
+        public Teacher()
         {
-            this.Students = new HashSet<Student>();
+            this.TestPassings = new HashSet<TestPassing>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> CourseId { get; set; }
-        public Nullable<int> TeacherId { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> BegingDate { get; set; }
+        public Nullable<int> UserId { get; set; }
     
-        public virtual Course Course { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<TestPassing> TestPassings { get; set; }
     }
 }

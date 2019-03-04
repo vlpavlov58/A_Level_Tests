@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.EFDataLayer.DataModels
+namespace FinalProject.DataLayer.DataModel
 {
     using System;
     using System.Collections.Generic;

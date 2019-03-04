@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.EFDataLayer.DataModels
+namespace FinalProject.DataLayer.DataModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Answer
+    public partial class StudentGroup
     {
-        public int Id { get; set; }
-        public int QuestionId { get; set; }
-        public string Name { get; set; }
+        public int StudnetId { get; set; }
+        public int GroupId { get; set; }
     }
 }

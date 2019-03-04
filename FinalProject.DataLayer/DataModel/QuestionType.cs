@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.EFDataLayer.DataModels
+namespace FinalProject.DataLayer.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace FinalProject.EFDataLayer.DataModels
         }
     
         public int Id { get; set; }
-        public string Type { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Questions { get; set; }

@@ -1,5 +1,8 @@
 ﻿CREATE TABLE [dbo].[StudentGroup] (
-    [StudnetId] INT NULL,
-    [GroupId]   INT NULL
+    [StudnetId] INT NOT NULL,
+    [GroupId]   INT NOT NULL,
+    CONSTRAINT [PK_StudentGroup] PRIMARY KEY CLUSTERED ([StudnetId] ASC, [GroupId] ASC)
 );
+
+
 
