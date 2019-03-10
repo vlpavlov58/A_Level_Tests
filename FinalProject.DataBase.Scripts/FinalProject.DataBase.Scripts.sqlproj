@@ -65,17 +65,19 @@
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Theme.sql" />
     <Build Include="dbo\Tables\TestPassing.sql" />
-    <Build Include="dbo\Tables\TestModule.sql" />
     <Build Include="dbo\Tables\Test.sql" />
     <Build Include="dbo\Tables\Teacher.sql" />
     <Build Include="dbo\Tables\Student.sql" />
-    <Build Include="dbo\Tables\QuestionAnswer.sql" />
     <Build Include="dbo\Tables\Question.sql" />
-    <Build Include="dbo\Tables\ModuleTheme.sql" />
     <Build Include="dbo\Tables\Module.sql" />
     <Build Include="dbo\Tables\Group.sql" />
     <Build Include="dbo\Tables\Course.sql" />
-    <Build Include="dbo\Tables\Answer.sql" />
     <Build Include="dbo\Tables\QuestionType.sql" />
+    <Build Include="dbo\Tables\TextAnswer.sql" />
+    <Build Include="dbo\Tables\TeacherGroup.sql" />
+    <Build Include="dbo\Tables\StudentGroup.sql" />
+    <Build Include="dbo\Tables\MultichoiceAnswer.sql" />
+    <Build Include="dbo\Tables\CourseTeacher.sql" />
+    <Build Include="dbo\Tables\Admin.sql" />
   </ItemGroup>
 </Project>
