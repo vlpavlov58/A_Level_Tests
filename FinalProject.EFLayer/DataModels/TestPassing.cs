@@ -7,14 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.DataLayer.DataModel
+namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentGroup
+    public partial class TestPassing
     {
-        public int StudnetId { get; set; }
-        public int GroupId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> StudentId { get; set; }
+        public Nullable<int> TestId { get; set; }
+        public Nullable<int> TeacherId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+    
+        public virtual Student Student { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public virtual Test Test { get; set; }
     }
 }

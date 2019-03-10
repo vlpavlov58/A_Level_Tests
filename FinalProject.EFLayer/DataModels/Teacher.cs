@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.DataLayer.DataModel
+namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
@@ -18,6 +18,8 @@ namespace FinalProject.DataLayer.DataModel
         public Teacher()
         {
             this.TestPassings = new HashSet<TestPassing>();
+            this.Courses = new HashSet<Course>();
+            this.Groups = new HashSet<Group>();
         }
     
         public int Id { get; set; }
@@ -26,5 +28,9 @@ namespace FinalProject.DataLayer.DataModel
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TestPassing> TestPassings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Course> Courses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

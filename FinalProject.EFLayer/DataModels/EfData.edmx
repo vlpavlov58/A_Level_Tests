@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FinalProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FinalProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="Id" />
@@ -123,7 +123,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nchar" MaxLength="10" />
           <Property Name="LastName" Type="nchar" MaxLength="10" />
           <Property Name="Login" Type="nchar" MaxLength="10" />
@@ -137,6 +137,42 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseTeacher_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseTeacher" Type="Self.CourseTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CourseTeacher">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseTeacher_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="CourseTeacher" Type="Self.CourseTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CourseTeacher">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Group_Course">
           <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
           <End Role="Group" Type="Self.Group" Multiplicity="*" />
@@ -158,6 +194,18 @@
             </Principal>
             <Dependent Role="Module">
               <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Module_Test">
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
+          <End Role="Module" Type="Self.Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="TestId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -185,6 +233,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Question_Test">
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Question_Theme">
           <End Role="Theme" Type="Self.Theme" Multiplicity="0..1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
@@ -209,6 +269,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StudentGroup_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentGroup_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentGroup">
+              <PropertyRef Name="StudnetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Teacher_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
@@ -218,6 +302,30 @@
             </Principal>
             <Dependent Role="Teacher">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherGroup_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="TeacherGroup" Type="Self.TeacherGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherGroup">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherGroup_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="TeacherGroup" Type="Self.TeacherGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherGroup">
+              <PropertyRef Name="TeacherId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -266,6 +374,18 @@
             </Principal>
             <Dependent Role="TestPassing">
               <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Theme_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="ModuleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -298,12 +418,28 @@
           <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Answer_Question" Association="Self.FK_Answer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseTeacher_Course" Association="Self.FK_CourseTeacher_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseTeacher" EntitySet="CourseTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseTeacher_Teacher" Association="Self.FK_CourseTeacher_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="CourseTeacher" EntitySet="CourseTeacher" />
+          </AssociationSet>
           <AssociationSet Name="FK_Group_Course" Association="Self.FK_Group_Course">
             <End Role="Course" EntitySet="Course" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
           <AssociationSet Name="FK_Module_Course" Association="Self.FK_Module_Course">
             <End Role="Course" EntitySet="Course" />
+            <End Role="Module" EntitySet="Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Module_Test" Association="Self.FK_Module_Test">
+            <End Role="Test" EntitySet="Test" />
             <End Role="Module" EntitySet="Module" />
           </AssociationSet>
           <AssociationSet Name="FK_Question_Module" Association="Self.FK_Question_Module">
@@ -314,6 +450,10 @@
             <End Role="QuestionType" EntitySet="QuestionType" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
+          <AssociationSet Name="FK_Question_Test" Association="Self.FK_Question_Test">
+            <End Role="Test" EntitySet="Test" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
           <AssociationSet Name="FK_Question_Theme" Association="Self.FK_Question_Theme">
             <End Role="Theme" EntitySet="Theme" />
             <End Role="Question" EntitySet="Question" />
@@ -322,9 +462,25 @@
             <End Role="User" EntitySet="User" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Group" Association="Self.FK_StudentGroup_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentGroup_Student" Association="Self.FK_StudentGroup_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentGroup" EntitySet="StudentGroup" />
+          </AssociationSet>
           <AssociationSet Name="FK_Teacher_User" Association="Self.FK_Teacher_User">
             <End Role="User" EntitySet="User" />
             <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherGroup_Group" Association="Self.FK_TeacherGroup_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="TeacherGroup" EntitySet="TeacherGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherGroup_Teacher" Association="Self.FK_TeacherGroup_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="TeacherGroup" EntitySet="TeacherGroup" />
           </AssociationSet>
           <AssociationSet Name="FK_Test_Course" Association="Self.FK_Test_Course">
             <End Role="Course" EntitySet="Course" />
@@ -342,16 +498,110 @@
             <End Role="Test" EntitySet="Test" />
             <End Role="TestPassing" EntitySet="TestPassing" />
           </AssociationSet>
+          <AssociationSet Name="FK_Theme_Module" Association="Self.FK_Theme_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Theme" EntitySet="Theme" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
             <End Role="UserType" EntitySet="UserType" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinalProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FinalProjectDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Answers" EntityType="FinalProjectDBModel.Answer" />
+          <EntitySet Name="Courses" EntityType="FinalProjectDBModel.Course" />
+          <EntitySet Name="Groups" EntityType="FinalProjectDBModel.Group" />
+          <EntitySet Name="Modules" EntityType="FinalProjectDBModel.Module" />
+          <EntitySet Name="Questions" EntityType="FinalProjectDBModel.Question" />
+          <EntitySet Name="QuestionTypes" EntityType="FinalProjectDBModel.QuestionType" />
+          <EntitySet Name="Students" EntityType="FinalProjectDBModel.Student" />
+          <EntitySet Name="Teachers" EntityType="FinalProjectDBModel.Teacher" />
+          <EntitySet Name="Tests" EntityType="FinalProjectDBModel.Test" />
+          <EntitySet Name="TestPassings" EntityType="FinalProjectDBModel.TestPassing" />
+          <EntitySet Name="Themes" EntityType="FinalProjectDBModel.Theme" />
+          <EntitySet Name="Users" EntityType="FinalProjectDBModel.User" />
+          <EntitySet Name="UserTypes" EntityType="FinalProjectDBModel.UserType" />
+          <AssociationSet Name="FK_Answer_Question" Association="FinalProjectDBModel.FK_Answer_Question">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Answer" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Course" Association="FinalProjectDBModel.FK_Group_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Module_Course" Association="FinalProjectDBModel.FK_Module_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Test_Course" Association="FinalProjectDBModel.FK_Test_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Test" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Module_Test" Association="FinalProjectDBModel.FK_Module_Test">
+            <End Role="Test" EntitySet="Tests" />
+            <End Role="Module" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Module" Association="FinalProjectDBModel.FK_Question_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Theme_Module" Association="FinalProjectDBModel.FK_Theme_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Theme" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_QuestionType" Association="FinalProjectDBModel.FK_Question_QuestionType">
+            <End Role="QuestionType" EntitySet="QuestionTypes" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Test" Association="FinalProjectDBModel.FK_Question_Test">
+            <End Role="Test" EntitySet="Tests" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Theme" Association="FinalProjectDBModel.FK_Question_Theme">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_User" Association="FinalProjectDBModel.FK_Student_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestPassing_Student" Association="FinalProjectDBModel.FK_TestPassing_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="TestPassing" EntitySet="TestPassings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_User" Association="FinalProjectDBModel.FK_Teacher_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestPassing_Teacher" Association="FinalProjectDBModel.FK_TestPassing_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="TestPassing" EntitySet="TestPassings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestPassing_Test" Association="FinalProjectDBModel.FK_TestPassing_Test">
+            <End Role="Test" EntitySet="Tests" />
+            <End Role="TestPassing" EntitySet="TestPassings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="FinalProjectDBModel.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="CourseTeacher" Association="FinalProjectDBModel.CourseTeacher">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="StudentGroup" Association="FinalProjectDBModel.StudentGroup">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherGroup" Association="FinalProjectDBModel.TeacherGroup">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="Id" />
@@ -359,6 +609,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Question" Relationship="FinalProjectDBModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -366,17 +617,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Course" FromRole="Course" ToRole="Group" />
-          <NavigationProperty Name="Modules" Relationship="Self.FK_Module_Course" FromRole="Course" ToRole="Module" />
-          <NavigationProperty Name="Tests" Relationship="Self.FK_Test_Course" FromRole="Course" ToRole="Test" />
-        </EntityType>
-        <EntityType Name="CourseTeacher">
-          <Key>
-            <PropertyRef Name="TeacherId" />
-            <PropertyRef Name="CourseId" />
-          </Key>
-          <Property Name="TeacherId" Type="Int32" Nullable="false" />
-          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Groups" Relationship="FinalProjectDBModel.FK_Group_Course" FromRole="Course" ToRole="Group" />
+          <NavigationProperty Name="Modules" Relationship="FinalProjectDBModel.FK_Module_Course" FromRole="Course" ToRole="Module" />
+          <NavigationProperty Name="Tests" Relationship="FinalProjectDBModel.FK_Test_Course" FromRole="Course" ToRole="Test" />
+          <NavigationProperty Name="Teachers" Relationship="FinalProjectDBModel.CourseTeacher" FromRole="Course" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -386,7 +630,9 @@
           <Property Name="CourseId" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BegingDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Course" Relationship="Self.FK_Group_Course" FromRole="Group" ToRole="Course" />
+          <NavigationProperty Name="Course" Relationship="FinalProjectDBModel.FK_Group_Course" FromRole="Group" ToRole="Course" />
+          <NavigationProperty Name="Students" Relationship="FinalProjectDBModel.StudentGroup" FromRole="Group" ToRole="Student" />
+          <NavigationProperty Name="Teachers" Relationship="FinalProjectDBModel.TeacherGroup" FromRole="Group" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Module">
           <Key>
@@ -396,8 +642,10 @@
           <Property Name="CourseId" Type="Int32" />
           <Property Name="QuatityLessons" Type="Int32" />
           <Property Name="TestId" Type="Int32" />
-          <NavigationProperty Name="Course" Relationship="Self.FK_Module_Course" FromRole="Module" ToRole="Course" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Module" FromRole="Module" ToRole="Question" />
+          <NavigationProperty Name="Course" Relationship="FinalProjectDBModel.FK_Module_Course" FromRole="Module" ToRole="Course" />
+          <NavigationProperty Name="Test" Relationship="FinalProjectDBModel.FK_Module_Test" FromRole="Module" ToRole="Test" />
+          <NavigationProperty Name="Questions" Relationship="FinalProjectDBModel.FK_Question_Module" FromRole="Module" ToRole="Question" />
+          <NavigationProperty Name="Themes" Relationship="FinalProjectDBModel.FK_Theme_Module" FromRole="Module" ToRole="Theme" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -409,9 +657,11 @@
           <Property Name="ThemeId" Type="Int32" />
           <Property Name="TestId" Type="Int32" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Module" Relationship="Self.FK_Question_Module" FromRole="Question" ToRole="Module" />
-          <NavigationProperty Name="QuestionType" Relationship="Self.FK_Question_QuestionType" FromRole="Question" ToRole="QuestionType" />
-          <NavigationProperty Name="Theme" Relationship="Self.FK_Question_Theme" FromRole="Question" ToRole="Theme" />
+          <NavigationProperty Name="Answers" Relationship="FinalProjectDBModel.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="Module" Relationship="FinalProjectDBModel.FK_Question_Module" FromRole="Question" ToRole="Module" />
+          <NavigationProperty Name="QuestionType" Relationship="FinalProjectDBModel.FK_Question_QuestionType" FromRole="Question" ToRole="QuestionType" />
+          <NavigationProperty Name="Test" Relationship="FinalProjectDBModel.FK_Question_Test" FromRole="Question" ToRole="Test" />
+          <NavigationProperty Name="Theme" Relationship="FinalProjectDBModel.FK_Question_Theme" FromRole="Question" ToRole="Theme" />
         </EntityType>
         <EntityType Name="QuestionType">
           <Key>
@@ -419,7 +669,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_QuestionType" FromRole="QuestionType" ToRole="Question" />
+          <NavigationProperty Name="Questions" Relationship="FinalProjectDBModel.FK_Question_QuestionType" FromRole="QuestionType" ToRole="Question" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -427,16 +677,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Student_User" FromRole="Student" ToRole="User" />
-          <NavigationProperty Name="TestPassings" Relationship="Self.FK_TestPassing_Student" FromRole="Student" ToRole="TestPassing" />
-        </EntityType>
-        <EntityType Name="StudentGroup">
-          <Key>
-            <PropertyRef Name="StudnetId" />
-            <PropertyRef Name="GroupId" />
-          </Key>
-          <Property Name="StudnetId" Type="Int32" Nullable="false" />
-          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="FinalProjectDBModel.FK_Student_User" FromRole="Student" ToRole="User" />
+          <NavigationProperty Name="TestPassings" Relationship="FinalProjectDBModel.FK_TestPassing_Student" FromRole="Student" ToRole="TestPassing" />
+          <NavigationProperty Name="Groups" Relationship="FinalProjectDBModel.StudentGroup" FromRole="Student" ToRole="Group" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -444,16 +687,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Teacher_User" FromRole="Teacher" ToRole="User" />
-          <NavigationProperty Name="TestPassings" Relationship="Self.FK_TestPassing_Teacher" FromRole="Teacher" ToRole="TestPassing" />
-        </EntityType>
-        <EntityType Name="TeacherGroup">
-          <Key>
-            <PropertyRef Name="TeacherId" />
-            <PropertyRef Name="GroupId" />
-          </Key>
-          <Property Name="TeacherId" Type="Int32" Nullable="false" />
-          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="FinalProjectDBModel.FK_Teacher_User" FromRole="Teacher" ToRole="User" />
+          <NavigationProperty Name="TestPassings" Relationship="FinalProjectDBModel.FK_TestPassing_Teacher" FromRole="Teacher" ToRole="TestPassing" />
+          <NavigationProperty Name="Courses" Relationship="FinalProjectDBModel.CourseTeacher" FromRole="Teacher" ToRole="Course" />
+          <NavigationProperty Name="Groups" Relationship="FinalProjectDBModel.TeacherGroup" FromRole="Teacher" ToRole="Group" />
         </EntityType>
         <EntityType Name="Test">
           <Key>
@@ -461,8 +698,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourseId" Type="Int32" />
-          <NavigationProperty Name="Course" Relationship="Self.FK_Test_Course" FromRole="Test" ToRole="Course" />
-          <NavigationProperty Name="TestPassings" Relationship="Self.FK_TestPassing_Test" FromRole="Test" ToRole="TestPassing" />
+          <NavigationProperty Name="Course" Relationship="FinalProjectDBModel.FK_Test_Course" FromRole="Test" ToRole="Course" />
+          <NavigationProperty Name="Modules" Relationship="FinalProjectDBModel.FK_Module_Test" FromRole="Test" ToRole="Module" />
+          <NavigationProperty Name="Questions" Relationship="FinalProjectDBModel.FK_Question_Test" FromRole="Test" ToRole="Question" />
+          <NavigationProperty Name="TestPassings" Relationship="FinalProjectDBModel.FK_TestPassing_Test" FromRole="Test" ToRole="TestPassing" />
         </EntityType>
         <EntityType Name="TestPassing">
           <Key>
@@ -473,9 +712,9 @@
           <Property Name="TestId" Type="Int32" />
           <Property Name="TeacherId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_TestPassing_Student" FromRole="TestPassing" ToRole="Student" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_TestPassing_Teacher" FromRole="TestPassing" ToRole="Teacher" />
-          <NavigationProperty Name="Test" Relationship="Self.FK_TestPassing_Test" FromRole="TestPassing" ToRole="Test" />
+          <NavigationProperty Name="Student" Relationship="FinalProjectDBModel.FK_TestPassing_Student" FromRole="TestPassing" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="FinalProjectDBModel.FK_TestPassing_Teacher" FromRole="TestPassing" ToRole="Teacher" />
+          <NavigationProperty Name="Test" Relationship="FinalProjectDBModel.FK_TestPassing_Test" FromRole="TestPassing" ToRole="Test" />
         </EntityType>
         <EntityType Name="Theme">
           <Key>
@@ -484,21 +723,22 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ModuleId" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Theme" FromRole="Theme" ToRole="Question" />
+          <NavigationProperty Name="Module" Relationship="FinalProjectDBModel.FK_Theme_Module" FromRole="Theme" ToRole="Module" />
+          <NavigationProperty Name="Questions" Relationship="FinalProjectDBModel.FK_Question_Theme" FromRole="Theme" ToRole="Question" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="UserTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_Student_User" FromRole="User" ToRole="Student" />
-          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teacher_User" FromRole="User" ToRole="Teacher" />
-          <NavigationProperty Name="UserType" Relationship="Self.FK_User_UserType" FromRole="User" ToRole="UserType" />
+          <NavigationProperty Name="Students" Relationship="FinalProjectDBModel.FK_Student_User" FromRole="User" ToRole="Student" />
+          <NavigationProperty Name="Teachers" Relationship="FinalProjectDBModel.FK_Teacher_User" FromRole="User" ToRole="Teacher" />
+          <NavigationProperty Name="UserType" Relationship="FinalProjectDBModel.FK_User_UserType" FromRole="User" ToRole="UserType" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
@@ -506,11 +746,23 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
+          <NavigationProperty Name="Users" Relationship="FinalProjectDBModel.FK_User_UserType" FromRole="UserType" ToRole="User" />
         </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Type="FinalProjectDBModel.Question" Role="Question" Multiplicity="1" />
+          <End Type="FinalProjectDBModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Group_Course">
-          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Group" Role="Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Course">
               <PropertyRef Name="Id" />
@@ -521,8 +773,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Module_Course">
-          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-          <End Role="Module" Type="Self.Module" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Module" Role="Module" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Course">
               <PropertyRef Name="Id" />
@@ -533,8 +785,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Test_Course">
-          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Test" Role="Test" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Course">
               <PropertyRef Name="Id" />
@@ -544,9 +796,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Module_Test">
+          <End Type="FinalProjectDBModel.Test" Role="Test" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Module" Role="Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Question_Module">
-          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Module" Role="Module" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Question" Role="Question" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Module">
               <PropertyRef Name="Id" />
@@ -556,9 +820,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Theme_Module">
+          <End Type="FinalProjectDBModel.Module" Role="Module" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Theme" Role="Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Question_QuestionType">
-          <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.QuestionType" Role="QuestionType" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Question" Role="Question" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QuestionType">
               <PropertyRef Name="Id" />
@@ -568,9 +844,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Question_Test">
+          <End Type="FinalProjectDBModel.Test" Role="Test" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Question_Theme">
-          <End Role="Theme" Type="Self.Theme" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Theme" Role="Theme" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Question" Role="Question" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Theme">
               <PropertyRef Name="Id" />
@@ -581,8 +869,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -593,8 +881,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestPassing_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <End Role="TestPassing" Type="Self.TestPassing" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.TestPassing" Role="TestPassing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="Id" />
@@ -605,8 +893,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Teacher_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.Teacher" Role="Teacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -617,8 +905,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestPassing_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="TestPassing" Type="Self.TestPassing" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.TestPassing" Role="TestPassing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
               <PropertyRef Name="Id" />
@@ -629,8 +917,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TestPassing_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
-          <End Role="TestPassing" Type="Self.TestPassing" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Test" Role="Test" Multiplicity="0..1" />
+          <End Type="FinalProjectDBModel.TestPassing" Role="TestPassing" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Test">
               <PropertyRef Name="Id" />
@@ -641,8 +929,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_UserType">
-          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="FinalProjectDBModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserType">
               <PropertyRef Name="Id" />
@@ -652,72 +940,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FinalProjectDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Answers" EntityType="Self.Answer" />
-          <EntitySet Name="Courses" EntityType="Self.Course" />
-          <EntitySet Name="CourseTeachers" EntityType="Self.CourseTeacher" />
-          <EntitySet Name="Groups" EntityType="Self.Group" />
-          <EntitySet Name="Modules" EntityType="Self.Module" />
-          <EntitySet Name="Questions" EntityType="Self.Question" />
-          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionType" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="StudentGroups" EntityType="Self.StudentGroup" />
-          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
-          <EntitySet Name="TeacherGroups" EntityType="Self.TeacherGroup" />
-          <EntitySet Name="Tests" EntityType="Self.Test" />
-          <EntitySet Name="TestPassings" EntityType="Self.TestPassing" />
-          <EntitySet Name="Themes" EntityType="Self.Theme" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-          <AssociationSet Name="FK_Group_Course" Association="Self.FK_Group_Course">
-            <End Role="Course" EntitySet="Courses" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Module_Course" Association="Self.FK_Module_Course">
-            <End Role="Course" EntitySet="Courses" />
-            <End Role="Module" EntitySet="Modules" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Test_Course" Association="Self.FK_Test_Course">
-            <End Role="Course" EntitySet="Courses" />
-            <End Role="Test" EntitySet="Tests" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_Module" Association="Self.FK_Question_Module">
-            <End Role="Module" EntitySet="Modules" />
-            <End Role="Question" EntitySet="Questions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_QuestionType" Association="Self.FK_Question_QuestionType">
-            <End Role="QuestionType" EntitySet="QuestionTypes" />
-            <End Role="Question" EntitySet="Questions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_Theme" Association="Self.FK_Question_Theme">
-            <End Role="Theme" EntitySet="Themes" />
-            <End Role="Question" EntitySet="Questions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_User" Association="Self.FK_Student_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TestPassing_Student" Association="Self.FK_TestPassing_Student">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="TestPassing" EntitySet="TestPassings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Teacher_User" Association="Self.FK_Teacher_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Teacher" EntitySet="Teachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TestPassing_Teacher" Association="Self.FK_TestPassing_Teacher">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="TestPassing" EntitySet="TestPassings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TestPassing_Test" Association="Self.FK_TestPassing_Test">
-            <End Role="Test" EntitySet="Tests" />
-            <End Role="TestPassing" EntitySet="TestPassings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
-            <End Role="UserType" EntitySet="UserTypes" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
-        </EntityContainer>
+        <Association Name="CourseTeacher">
+          <End Type="FinalProjectDBModel.Course" Role="Course" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Teacher" Role="Teacher" Multiplicity="*" />
+        </Association>
+        <Association Name="StudentGroup">
+          <End Type="FinalProjectDBModel.Group" Role="Group" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Student" Role="Student" Multiplicity="*" />
+        </Association>
+        <Association Name="TeacherGroup">
+          <End Type="FinalProjectDBModel.Group" Role="Group" Multiplicity="*" />
+          <End Type="FinalProjectDBModel.Teacher" Role="Teacher" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -727,148 +961,148 @@
           <EntitySetMapping Name="Answers">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Answer">
               <MappingFragment StoreEntitySet="Answer">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Course">
               <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CourseTeachers">
-            <EntityTypeMapping TypeName="FinalProjectDBModel.CourseTeacher">
-              <MappingFragment StoreEntitySet="CourseTeacher">
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Group">
               <MappingFragment StoreEntitySet="Group">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BegingDate" ColumnName="BegingDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modules">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Module">
               <MappingFragment StoreEntitySet="Module">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="QuatityLessons" ColumnName="QuatityLessons" />
                 <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="QuatityLessons" ColumnName="QuatityLessons" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Question">
               <MappingFragment StoreEntitySet="Question">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="QuestionTypeId" ColumnName="QuestionTypeId" />
-                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
-                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
-                <ScalarProperty Name="TestId" ColumnName="TestId" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="QuestionTypeId" ColumnName="QuestionTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QuestionTypes">
             <EntityTypeMapping TypeName="FinalProjectDBModel.QuestionType">
               <MappingFragment StoreEntitySet="QuestionType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StudentGroups">
-            <EntityTypeMapping TypeName="FinalProjectDBModel.StudentGroup">
-              <MappingFragment StoreEntitySet="StudentGroup">
-                <ScalarProperty Name="StudnetId" ColumnName="StudnetId" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Teacher">
               <MappingFragment StoreEntitySet="Teacher">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TeacherGroups">
-            <EntityTypeMapping TypeName="FinalProjectDBModel.TeacherGroup">
-              <MappingFragment StoreEntitySet="TeacherGroup">
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tests">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Test">
               <MappingFragment StoreEntitySet="Test">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TestPassings">
             <EntityTypeMapping TypeName="FinalProjectDBModel.TestPassing">
               <MappingFragment StoreEntitySet="TestPassing">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="TestId" ColumnName="TestId" />
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Themes">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Theme">
               <MappingFragment StoreEntitySet="Theme">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FinalProjectDBModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserTypes">
             <EntityTypeMapping TypeName="FinalProjectDBModel.UserType">
               <MappingFragment StoreEntitySet="UserType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="CourseTeacher" TypeName="FinalProjectDBModel.CourseTeacher" StoreEntitySet="CourseTeacher">
+            <EndProperty Name="Teacher">
+              <ScalarProperty Name="Id" ColumnName="TeacherId" />
+            </EndProperty>
+            <EndProperty Name="Course">
+              <ScalarProperty Name="Id" ColumnName="CourseId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="StudentGroup" TypeName="FinalProjectDBModel.StudentGroup" StoreEntitySet="StudentGroup">
+            <EndProperty Name="Student">
+              <ScalarProperty Name="Id" ColumnName="StudnetId" />
+            </EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="Id" ColumnName="GroupId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TeacherGroup" TypeName="FinalProjectDBModel.TeacherGroup" StoreEntitySet="TeacherGroup">
+            <EndProperty Name="Teacher">
+              <ScalarProperty Name="Id" ColumnName="TeacherId" />
+            </EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="Id" ColumnName="GroupId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

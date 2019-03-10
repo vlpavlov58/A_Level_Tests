@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.DataLayer.DataModel
+namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Theme
+    public partial class QuestionType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Theme()
+        public QuestionType()
         {
             this.Questions = new HashSet<Question>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> ModuleId { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

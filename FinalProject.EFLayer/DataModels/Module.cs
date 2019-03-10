@@ -7,23 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.DataLayer.DataModel
+namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserType
+    public partial class Module
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserType()
+        public Module()
         {
-            this.Users = new HashSet<User>();
+            this.Questions = new HashSet<Question>();
+            this.Themes = new HashSet<Theme>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> CourseId { get; set; }
+        public Nullable<int> QuatityLessons { get; set; }
+        public Nullable<int> TestId { get; set; }
     
+        public virtual Course Course { get; set; }
+        public virtual Test Test { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Theme> Themes { get; set; }
     }
 }
