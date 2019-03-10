@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A3B6DD04-0022-4ADC-8727-BC145BC7F638}</ProjectGuid>
+    <ProjectGuid>{1DB50E72-BD16-43D1-9135-CD2D57E38F42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinalProject.EFLayer</RootNamespace>
@@ -50,17 +50,95 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\Admin.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Course.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EfData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EfData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EfData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Group.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Module.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\MultichoiceAnswer.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Question.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\QuestionType.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Student.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Teacher.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Test.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TestPassing.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TextAnswer.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Theme.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\User.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\UserType.cs">
+      <DependentUpon>EfData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="DataModels\EfData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EfData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="App.Config" />
+    <None Include="DataModels\EfData.edmx.diagram">
+      <DependentUpon>EfData.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DataModels\EfData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EfData.Context.cs</LastGenOutput>
+      <DependentUpon>EfData.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataModels\EfData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EfData.edmx</DependentUpon>
+      <LastGenOutput>EfData.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataModels\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

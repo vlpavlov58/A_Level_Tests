@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c7418b723544035a448e4d95bc131af" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalProjectDBModel.Admin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Course" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Group" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Module" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.MultichoiceAnswer" Width="1.5" PointX="12" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Question" Width="1.5" PointX="9.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.QuestionType" Width="1.5" PointX="7.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Student" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Teacher" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Test" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.TestPassing" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.TextAnswer" Width="1.5" PointX="12" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Theme" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.User" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.UserType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Admin_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Group_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Module_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Test_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Module_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Question_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Theme_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_MultichoiceAnswer_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Question_QuestionType" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Question_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Question_Theme" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_TextAnswer_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Student_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_TestPassing_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_Teacher_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_TestPassing_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_TestPassing_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_User_UserType" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.CourseTeacher" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.StudentGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.TeacherGroup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
