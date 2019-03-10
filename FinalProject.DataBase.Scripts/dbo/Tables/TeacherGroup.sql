@@ -6,7 +6,3 @@
     CONSTRAINT [FK_TeacherGroup_Teacher] FOREIGN KEY ([TeacherId]) REFERENCES [dbo].[Teacher] ([Id])
 );
 
-
-
-
-
