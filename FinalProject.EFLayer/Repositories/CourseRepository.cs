@@ -10,7 +10,6 @@ namespace FinalProject.EFLayer.Repositories
     public class CourseRepository
     {
 
-
         public IEnumerable<Course> GetListOfCourses()
         {
             using (var context = new FinalProjectDBEntities())
@@ -26,7 +25,6 @@ namespace FinalProject.EFLayer.Repositories
                 return context.Courses.Find(Id);
             }
         }
-
 
         public void AddCourse(Course course)
         {
