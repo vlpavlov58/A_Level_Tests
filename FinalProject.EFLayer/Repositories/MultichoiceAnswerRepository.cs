@@ -9,7 +9,7 @@ namespace FinalProject.EFLayer.Repositories
 {
     public class MultichoiceAnswerRepository
     {
-        public IEnumerable<MultichoiceAnswer> GetListOfMultichoiceAnswers()
+        public IEnumerable<MultichoiceAnswer> GetListOfMultiChoiceAnswers()
         {
             using (var context = new FinalProjectDBEntities())
             {
@@ -17,24 +17,24 @@ namespace FinalProject.EFLayer.Repositories
             }
         }
 
-        public void AddMultichoiceAnswers(MultichoiceAnswer multichoiseAnswer)
+        public void AddMultiChoiceAnswers(MultichoiceAnswer multiChoiseAnswer)
         {
             using (var context = new FinalProjectDBEntities())
             {
-                context.MultichoiceAnswers.Add(multichoiseAnswer);
+                context.MultichoiceAnswers.Add(multiChoiseAnswer);
             }
         }
 
-        public void DeleteAddMultichoiceAnswers(int Id)
+        public void DeleteAddMultiChoiceAnswers(int Id)
         {
             using (var context = new FinalProjectDBEntities())
             {
-                MultichoiceAnswer multichoiceAnswer = context.MultichoiceAnswers.Find(Id);
-                context.MultichoiceAnswers.Remove(multichoiceAnswer);
+                MultichoiceAnswer multiChoiceAnswer = context.MultichoiceAnswers.Find(Id);
+                context.MultichoiceAnswers.Remove(multiChoiceAnswer);
             }
         }
 
-        public MultichoiceAnswer GetMultichoiceAnswerById(int Id)
+        public MultichoiceAnswer GetMultiChoiceAnswerById(int Id)
         {
             using (var context = new FinalProjectDBEntities())
             {
