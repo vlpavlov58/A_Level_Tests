@@ -51,110 +51,107 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\Admin.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Course.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\EfData.Context.cs">
+    <Compile Include="DataModels\EFData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EfData.Context.tt</DependentUpon>
+      <DependentUpon>EFData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\EfData.cs">
+    <Compile Include="DataModels\EFData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\EfData.Designer.cs">
+    <Compile Include="DataModels\EFData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EfData.edmx</DependentUpon>
+      <DependentUpon>EFData.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Group.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Module.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\MultichoiceAnswer.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Question.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\QuestionType.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Student.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Teacher.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Test.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\TestPassing.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\TextAnswer.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\Theme.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\User.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModels\UserType.cs">
-      <DependentUpon>EfData.tt</DependentUpon>
+      <DependentUpon>EFData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
     <Compile Include="Repositories\ModuleRepository.cs" />
-    <Compile Include="Repositories\MultichoiseAnswerRepository.cs" />
+    <Compile Include="Repositories\MultichoiceAnswerRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\QuestionTypeRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\TeacherRepository.cs" />
-    <Compile Include="Repositories\TestAnswerRepository.cs" />
-    <Compile Include="Repositories\TestPassing.cs" />
+    <Compile Include="Repositories\TestPassingRepository.cs" />
     <Compile Include="Repositories\TestRepository.cs" />
+    <Compile Include="Repositories\TextAnswerRepository.cs" />
     <Compile Include="Repositories\ThemeRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DataModels\EfData.edmx">
+    <EntityDeploy Include="DataModels\EFData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EfData.Designer.cs</LastGenOutput>
+      <LastGenOutput>EFData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="DataModels\EfData.edmx.diagram">
-      <DependentUpon>EfData.edmx</DependentUpon>
+    <None Include="DataModels\EFData.edmx.diagram">
+      <DependentUpon>EFData.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModels\EfData.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EfData.Context.cs</LastGenOutput>
-      <DependentUpon>EfData.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataModels\EfData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EfData.edmx</DependentUpon>
-      <LastGenOutput>EfData.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DataModels\EFData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFData.edmx</DependentUpon>
+      <LastGenOutput>EFData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\EFData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFData.edmx</DependentUpon>
+      <LastGenOutput>EFData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

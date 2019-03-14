@@ -14,7 +14,7 @@ namespace FinalProject.EFLayer.Repositories
             }
         }
 
-        public void Add(Admin admin)
+        public void AddAdmin(Admin admin)
         {
             using (var context = new FinalProjectDBEntities())
             {

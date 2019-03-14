@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.EFLayer.Repositories
 {
-    public class TestPassing
+    class TextAnswerRepository
     {
     }
 }

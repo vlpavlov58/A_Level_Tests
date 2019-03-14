@@ -26,7 +26,7 @@ namespace FinalProject.EFLayer.Repositories
             }
         }
 
-        public void Delete(int Id)
+        public void DeleteModule(int Id)
         {
             using (var context = new FinalProjectDBEntities())
             {
