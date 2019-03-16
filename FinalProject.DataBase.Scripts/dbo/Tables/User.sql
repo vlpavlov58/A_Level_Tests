@@ -1,10 +1,11 @@
 ﻿CREATE TABLE [dbo].[User] (
-    [Id]        INT            IDENTITY (1, 1) NOT NULL,
-    [FirstName] NVARCHAR (MAX) NULL,
-    [LastName]  NVARCHAR (MAX) NULL,
-    [Login]     NVARCHAR (MAX) NULL,
-    [Password]  NVARCHAR (MAX) NULL,
-    [UserType]  NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Id]         INT        NOT NULL,
+    [FirstName]  NCHAR (10) NULL,
+    [LastName]   NCHAR (10) NULL,
+    [Login]      NCHAR (10) NULL,
+    [Password]   NCHAR (10) NULL,
+    [UserTypeId] INT        NOT NULL,
+    CONSTRAINT [PK_User1] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_User_UserType] FOREIGN KEY ([UserTypeId]) REFERENCES [dbo].[UserType] ([Id])
 );
 
