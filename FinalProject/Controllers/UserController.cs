@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace FinalProject.Controllers
+namespace FinalProject.Api.Controllers
 {
    
     public class UserController : ApiController

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject", "FinalProject\FinalProject.csproj", "{34826965-E1AA-46DA-B141-D83C422DC0F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.Api", "FinalProject\FinalProject.Api.csproj", "{34826965-E1AA-46DA-B141-D83C422DC0F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProjectMVC", "FinalProjectMVC\FinalProjectMVC.csproj", "{7B81E1CB-C049-4B7C-BE1E-BE726C859A9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProjectWeb", "FinalProjectMVC\FinalProjectWeb.csproj", "{7B81E1CB-C049-4B7C-BE1E-BE726C859A9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.BusinessLogic", "FinalProject.BusinessLogic\FinalProject.BusinessLogic.csproj", "{D3D9AF17-00E5-4855-80CE-7F116CF63B13}"
 EndProject

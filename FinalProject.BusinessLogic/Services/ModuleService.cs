@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    class UserService
+    internal class ModuleService
     {
     }
 }
