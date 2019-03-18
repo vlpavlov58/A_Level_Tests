@@ -5,12 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace FinalProject.Api.Controllers
+namespace FinalProject.Controllers
 {
-   
-    public class UserController : ApiController
+    public class QuiestionController : ApiController
     {
-
-        
     }
 }
