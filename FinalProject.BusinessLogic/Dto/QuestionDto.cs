@@ -1,4 +1,4 @@
-﻿using FinalProject.EFLayer.DataModels;
+﻿using FinalProject.DataLayer.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ namespace FinalProject.BusinessLogic.Dto
     {
         public string Text { get; set; }
 
-        public List<MultichoiceAnswer> multichoiceAnswersList { get; set; }
+        public List<MultichoiceAnswer> MultichoiceAnswersList { get; set; }
 
-        public List<TextAnswer> textAnswersList { get; set; }
+        public List<TextAnswer> TextAnswersList { get; set; }
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿using FinalProject.BusinessLogic.Dto;
-using FinalProject.EFLayer.DataModels;
+using FinalProject.DataLayer.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +21,8 @@ namespace FinalProject.BusinessLogic.Extensions
             var moduleDto = new ModuleDto
             {
                 QuantityLessons = module.QuantityLessons.Value,
-                questionList = module.Questions.Select(x => ToQuestionDto(x)).ToList(),                
-                
+                QuestionList = module.Questions.Select(x => ToQuestionDto(x)).ToList(),
+
             };
 
             return moduleDto;
@@ -37,11 +37,41 @@ namespace FinalProject.BusinessLogic.Extensions
             var questionDto = new QuestionDto
             {
                 Text = question.Text,
-                textAnswersList = 
+                TextAnswersList = question.TextAnswers
+                                                     .Select(x => ToTextAnswerDto(x))
+                                                     .ToList(),
+                MultichoiceAnswersList = question.MultichoiceAnswers
+                                                     .Select(x => ToMultichoiceAnswerDto(x))
+                                                     .ToList()
             };
+
+            return questionDto;
+        }
+
+        public static TextAnswerDto ToTextAnswerDto(this TextAnswer textAnswer)
+        {
+            if (textAnswer == null)
+                return null;
+
+            var textAnswerDto = new TextAnswerDto
+            {
+                Textbox = textAnswer.Textbox,
+                IsCorrect = textAnswer.IsCorrect.Value
+            };
+
+            return textAnswerDto;
         }
 
 
+        public static MultichoiceAnswerDto ToMultichoiceAnswerDto (this MultichoiceAnswer multichoice)
+        {
+            var multichoiceDto = new MultichoiceAnswerDto
+            {
+                AnswerText = multichoice.AnswerText,
+                IsCorrect = multichoice.IsCorrect.Value,
+            };
 
+            return multichoiceDto;
+        }
     }
 }

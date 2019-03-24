@@ -1,8 +1,8 @@
-﻿using FinalProject.EFLayer.DataModels;
+﻿using FinalProject.DataLayer.DataModels;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FinalProject.EFLayer.Repositories
+namespace FinalProject.DataLayer.Repositories
 {
     public class AdminRepository
     { 

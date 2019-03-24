@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.EFLayer.DataModels
+namespace FinalProject.DataLayer.DataModels
 {
     using System;
     using System.Data.Entity;

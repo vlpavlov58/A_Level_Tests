@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\ModuleDto.cs" />
+    <Compile Include="Dto\MultichoiceAnswerDto.cs" />
     <Compile Include="Dto\QuestionDto.cs" />
+    <Compile Include="Dto\TextAnswerDto.cs" />
     <Compile Include="Dto\ThemeDto.cs" />
     <Compile Include="Extensions\ModuleExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

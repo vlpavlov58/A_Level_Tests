@@ -6,8 +6,8 @@ namespace FinalProject.BusinessLogic.Dto
     {
         public int QuantityLessons { get; set; }        
 
-        public List<QuestionDto> questionList { get; set; }
+        public List<QuestionDto> QuestionList { get; set; }
 
-        public List<ThemeDto> themeList { get; set; }
+        public List<ThemeDto> ThemeList { get; set; }
     }
 }
