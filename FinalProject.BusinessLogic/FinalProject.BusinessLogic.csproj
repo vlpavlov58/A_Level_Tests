@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ModuleDto.cs" />
+    <Compile Include="Dto\QuestionDto.cs" />
+    <Compile Include="Dto\ThemeDto.cs" />
+    <Compile Include="Extensions\ModuleExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\ModuleService.cs" />
@@ -48,6 +52,11 @@
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\ThemeService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FinalProject.EFLayer\FinalProject.DataLayer.csproj">
+      <Project>{1DB50E72-BD16-43D1-9135-CD2D57E38F42}</Project>
+      <Name>FinalProject.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
