@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.BusinessLogic"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FinalProject.DataBase.Scripts", "FinalProject.DataBase.Scripts\FinalProject.DataBase.Scripts.sqlproj", "{A1FA258A-613E-4365-A8AD-D6581F0A61EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.EFLayer", "FinalProject.EFLayer\FinalProject.EFLayer.csproj", "{1DB50E72-BD16-43D1-9135-CD2D57E38F42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.DataLayer", "FinalProject.EFLayer\FinalProject.DataLayer.csproj", "{1DB50E72-BD16-43D1-9135-CD2D57E38F42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
