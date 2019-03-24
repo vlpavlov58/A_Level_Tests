@@ -20,8 +20,9 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var moduleDto = new ModuleDto
             {
-                QuantityLessons = module.QuantityLessons.Value
-
+                QuantityLessons = module.QuantityLessons.Value,
+                questionList = module.Questions.Select(x => ToQuestionDto(x)).ToList(),                
+                
             };
 
             return moduleDto;
@@ -30,17 +31,16 @@ namespace FinalProject.BusinessLogic.Extensions
 
         public static QuestionDto ToQuestionDto(this Question question)
         {
-
             if (question == null)
                 return null;
 
             var questionDto = new QuestionDto
             {
                 Text = question.Text,
-                textAnswersList
+                textAnswersList = 
             };
-
         }
+
 
 
     }
