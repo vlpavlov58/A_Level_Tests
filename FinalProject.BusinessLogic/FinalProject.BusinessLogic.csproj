@@ -41,12 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\AdminDto.cs" />
+    <Compile Include="Dto\CourseDto.cs" />
+    <Compile Include="Dto\GroupDto.cs" />
     <Compile Include="Dto\ModuleDto.cs" />
     <Compile Include="Dto\MultichoiceAnswerDto.cs" />
     <Compile Include="Dto\QuestionDto.cs" />
+    <Compile Include="Dto\QuestionTypeDto.cs" />
+    <Compile Include="Dto\StudentDto.cs" />
+    <Compile Include="Dto\TeacherDto.cs" />
+    <Compile Include="Dto\TestDto.cs" />
+    <Compile Include="Dto\TestPassingDto.cs" />
     <Compile Include="Dto\TextAnswerDto.cs" />
     <Compile Include="Dto\ThemeDto.cs" />
-    <Compile Include="Extensions\ModuleExtension.cs" />
+    <Compile Include="Dto\UserDto.cs" />
+    <Compile Include="Dto\UserTypeDto.cs" />
+    <Compile Include="Extensions\ProjectExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\ModuleService.cs" />

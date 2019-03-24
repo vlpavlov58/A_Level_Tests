@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.BusinessLogic.Extensions
 {
-    public static class ModuleExtension
+    public static class ProjectExtension
     {
 
 
@@ -22,11 +22,25 @@ namespace FinalProject.BusinessLogic.Extensions
             {
                 QuantityLessons = module.QuantityLessons.Value,
                 QuestionList = module.Questions.Select(x => ToQuestionDto(x)).ToList(),
-
+                ThemeList = module.Themes.Select(x => ToThemeDto(x)).ToList()
             };
 
             return moduleDto;
 
+        }
+
+        public static ThemeDto ToThemeDto(this Theme theme)
+        {
+            if (theme == null)
+                return null;
+
+            var themeDto = new ThemeDto
+            {
+                Name = theme.Name,
+                QuestionList = theme.Questions.Select(x => ToQuestionDto(x)).ToList()
+            };
+
+            return themeDto;
         }
 
         public static QuestionDto ToQuestionDto(this Question question)
@@ -65,6 +79,9 @@ namespace FinalProject.BusinessLogic.Extensions
 
         public static MultichoiceAnswerDto ToMultichoiceAnswerDto (this MultichoiceAnswer multichoice)
         {
+            if (multichoice == null)
+                return null;
+
             var multichoiceDto = new MultichoiceAnswerDto
             {
                 AnswerText = multichoice.AnswerText,

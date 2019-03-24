@@ -11,9 +11,9 @@ namespace FinalProject.BusinessLogic.Dto
     {
         public string Text { get; set; }
 
-        public List<MultichoiceAnswer> MultichoiceAnswersList { get; set; }
+        public List<MultichoiceAnswerDto> MultichoiceAnswersList { get; set; }
 
-        public List<TextAnswer> TextAnswersList { get; set; }
+        public List<TextAnswerDto> TextAnswersList { get; set; }
 
     }
 }
