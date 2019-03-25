@@ -11,7 +11,6 @@ namespace FinalProject.BusinessLogic.Extensions
     public static class ProjectExtension
     {
 
-
         public static ModuleDto ToModuleDto(this Module module)
         {
 
