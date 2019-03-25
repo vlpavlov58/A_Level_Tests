@@ -1,12 +1,24 @@
-﻿using System;
+﻿using FinalProject.BusinessLogic.Dto;
+using FinalProject.DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal class ModuleService
+    internal interface IModuleService
     {
+        List<ModuleDto> moduleList();
+    }
+    internal class ModuleService : IModuleService
+    {
+        public List<ModuleDto> moduleList()
+        {
+            var moduleRespitory = new ModuleRepository();
+
+            var moduleList = moduleRespitory.GetListOfModule();
+
+            return moduleList.Select(x => ModuleExtension.ToModuleDto(x)).ToList();
+        }
     }
 }

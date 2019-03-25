@@ -1,12 +1,26 @@
-﻿using System;
+﻿using FinalProject.BusinessLogic.Dto;
+using FinalProject.DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FinalProject.BusinessLogic.Extensions;
+
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal class TeacherService
+
+    internal interface ITeacherService
     {
+        List<TeacherDto> GetTeacherList();
+    }
+    internal class TeacherService : ITeacherService
+    {
+        public List<TeacherDto> GetTeacherList()
+        {
+            var teacherRepository = new TeacherRepository();
+
+            var teacherList = teacherRepository.GetListOfTeachers();
+
+            return teacherList.Select(x => TeacherExtension.ToTeacherDto(x)).ToList();
+        }
     }
 }

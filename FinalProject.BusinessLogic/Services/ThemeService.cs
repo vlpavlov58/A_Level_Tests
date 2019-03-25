@@ -1,12 +1,24 @@
-﻿using System;
+﻿using FinalProject.BusinessLogic.Dto;
+using FinalProject.DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal class ThemeService
+    internal interface IThemeService
     {
+        List<ThemeDto> GetThemeList();
+    }
+    internal class ThemeService : IThemeService
+    {
+        public List<ThemeDto> GetThemeList()
+        {
+            var themeRepository = new ThemeRepository();
+
+            var themeList = themeRepository.GetListOfTheme();
+
+            return themeList.Select(x => ThemeExtension.ToThemeDto(x)).ToList();
+        }
     }
 }
