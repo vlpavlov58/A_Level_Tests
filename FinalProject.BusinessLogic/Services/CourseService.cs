@@ -7,7 +7,7 @@ using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal interface ICourseService
+    public interface ICourseService
     {
         List<CourseDto> GetCourseList();
     }

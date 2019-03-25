@@ -6,7 +6,7 @@ using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal interface IModuleService
+    public interface IModuleService
     {
         List<ModuleDto> moduleList();
     }

@@ -7,7 +7,7 @@ using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal interface IQuestionService
+    public interface IQuestionService
     {
         List<QuestionDto> GetQuestionList();
     }

@@ -6,7 +6,7 @@ using FinalProject.BusinessLogic.Extensions;
 
 namespace FinalProject.BusinessLogic.Services
 {
-    internal interface IThemeService
+    public interface IThemeService
     {
         List<ThemeDto> GetThemeList();
     }
