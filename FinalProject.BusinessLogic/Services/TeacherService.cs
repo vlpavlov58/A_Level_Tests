@@ -20,7 +20,7 @@ namespace FinalProject.BusinessLogic.Services
 
             var teacherList = teacherRepository.GetListOfTeachers();
 
-            return teacherList.Select(x => TeacherExtension.ToTeacherDto(x)).ToList();
+            return teacherList.Select(x => x.ToTeacherDto()).ToList();
         }
     }
 }

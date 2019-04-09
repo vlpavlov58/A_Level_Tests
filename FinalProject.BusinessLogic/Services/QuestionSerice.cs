@@ -19,7 +19,7 @@ namespace FinalProject.BusinessLogic.Services
 
             var questionList = questionRepository.GetListOfQuestion();
 
-            return questionList.Select(x => QuestionExtension.ToQuestionDto(x)).ToList();
+            return questionList.Select(x => x.ToQuestionDto()).ToList();
         }
     }
 }

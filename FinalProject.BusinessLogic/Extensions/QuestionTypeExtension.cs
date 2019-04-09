@@ -15,7 +15,7 @@ namespace FinalProject.BusinessLogic.Extensions
             var questionTypeDto = new QuestionTypeDto
             {
                 Type = questionType.Type,
-                QuestionsList = questionType.Questions.Select(x => QuestionExtension.ToQuestionDto(x)).ToList()
+                QuestionsList = questionType.Questions.Select(x => x.ToQuestionDto()).ToList()
             };
 
             return questionTypeDto;

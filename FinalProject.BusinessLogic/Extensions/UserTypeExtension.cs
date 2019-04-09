@@ -14,7 +14,7 @@ namespace FinalProject.BusinessLogic.Extensions
             var userTypeDto = new UserTypeDto
             {
                 Name = userType.Name,
-                UsersList = userType.Users.Select(x => UserExtension.ToUserDto(x)).ToList()
+                UsersList = userType.Users.Select(x => x.ToUserDto()).ToList()
             };
 
             return userTypeDto;
