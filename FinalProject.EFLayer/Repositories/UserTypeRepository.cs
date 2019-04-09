@@ -1,9 +1,6 @@
-﻿using FinalProject.DataLayer.DataModels;
-using System;
+﻿using FinalProject.EFLayer.DataModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalProject.DataLayer.Repositories
 {

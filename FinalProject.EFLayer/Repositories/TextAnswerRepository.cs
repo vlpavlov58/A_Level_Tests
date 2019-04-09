@@ -1,4 +1,4 @@
-﻿using FinalProject.DataLayer.DataModels;
+﻿using FinalProject.EFLayer.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

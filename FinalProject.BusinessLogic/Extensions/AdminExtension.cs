@@ -1,5 +1,5 @@
 ﻿using FinalProject.BusinessLogic.Dto;
-using FinalProject.DataLayer.DataModels;
+using FinalProject.EFLayer.DataModels;
 
 namespace FinalProject.BusinessLogic.Extensions
 {

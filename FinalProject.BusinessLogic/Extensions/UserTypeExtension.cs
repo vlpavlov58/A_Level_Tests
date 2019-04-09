@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using FinalProject.BusinessLogic.Dto;
-using FinalProject.DataLayer.DataModels;
+using FinalProject.EFLayer.DataModels;
 
 namespace FinalProject.BusinessLogic.Extensions
 {
@@ -14,7 +14,7 @@ namespace FinalProject.BusinessLogic.Extensions
             var userTypeDto = new UserTypeDto
             {
                 Name = userType.Name,
-                UsersList = userType.Users.Select(x => UserExtension.ToUserDto(x)).ToList()
+                UsersList = userType.Users.Select(x => x.ToUserDto()).ToList()
             };
 
             return userTypeDto;

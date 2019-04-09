@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FinalProject.BusinessLogic.Dto;
-using FinalProject.DataLayer.DataModels;
-
+using FinalProject.EFLayer.DataModels;
 
 namespace FinalProject.BusinessLogic.Extensions
 {

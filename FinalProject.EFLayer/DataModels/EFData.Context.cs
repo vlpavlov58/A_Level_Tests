@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinalProject.DataLayer.DataModels
+namespace FinalProject.EFLayer.DataModels
 {
     using System;
     using System.Data.Entity;
@@ -30,7 +30,7 @@ namespace FinalProject.DataLayer.DataModels
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<MultichoiceAnswer> MultichoiceAnswers { get; set; }
-    public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<QuestionType> QuestionTypes { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
