@@ -5,7 +5,10 @@
     [Login]      NCHAR (10) NULL,
     [Password]   NCHAR (10) NULL,
     [UserTypeId] INT        NOT NULL,
+    [IsDeleted]  BIT        NULL,
     CONSTRAINT [PK_User1] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_User_UserType] FOREIGN KEY ([UserTypeId]) REFERENCES [dbo].[UserType] ([Id])
 );
+
+
 
