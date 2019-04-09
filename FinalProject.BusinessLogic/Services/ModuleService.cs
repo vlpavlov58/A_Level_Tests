@@ -18,7 +18,7 @@ namespace FinalProject.BusinessLogic.Services
 
             var moduleList = moduleRespitory.GetListOfModule();
 
-            return moduleList.Select(x => ModuleExtension.ToModuleDto(x)).ToList();
+            return moduleList.Select(x => x.ToModuleDto()).ToList();
         }
     }
 }

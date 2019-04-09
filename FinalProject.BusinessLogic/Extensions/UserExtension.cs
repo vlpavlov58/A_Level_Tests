@@ -17,9 +17,9 @@ namespace FinalProject.BusinessLogic.Extensions
                 LastName = user.LastName,
                 Login = user.Login,
                 Password = user.Password,
-                AdminsList = user.Admins.Select(x => AdminExtension.ToAdminDto(x)).ToList(),
-                StudentsList = user.Students.Select(x => StudentExtension.ToStudentDto(x)).ToList(),
-                TeachersList = user.Teachers.Select(x => TeacherExtension.ToTeacherDto(x)).ToList()
+                AdminsList = user.Admins.Select(x => x.ToAdminDto()).ToList(),
+                StudentsList = user.Students.Select(x => x.ToStudentDto()).ToList(),
+                TeachersList = user.Teachers.Select(x => x.ToTeacherDto()).ToList()
             };
 
             return userDto;

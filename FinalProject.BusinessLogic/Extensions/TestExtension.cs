@@ -13,9 +13,9 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var testDto = new TestDto
             {
-                ModulesList = test.Modules.Select(x => ModuleExtension.ToModuleDto(x)).ToList(),
-                QuestionsList = test.Questions.Select(x => QuestionExtension.ToQuestionDto(x)).ToList(),
-                TestPassingsList = test.TestPassings.Select(x => TestPassingExtension.ToTestPassingDto(x)).ToList()
+                ModulesList = test.Modules.Select(x => x.ToModuleDto()).ToList(),
+                QuestionsList = test.Questions.Select(x => x.ToQuestionDto()).ToList(),
+                TestPassingsList = test.TestPassings.Select(x => x.ToTestPassingDto()).ToList()
             };
 
             return testDto;

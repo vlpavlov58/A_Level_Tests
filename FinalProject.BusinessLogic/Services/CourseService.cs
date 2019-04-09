@@ -19,7 +19,7 @@ namespace FinalProject.BusinessLogic.Services
 
             var courseList = courseRepository.GetListOfCourses();
 
-            return courseList.Select(x => CourseExtension.ToCourseDto(x)).ToList();
+            return courseList.Select(x => x.ToCourseDto()).ToList();
         }
     }
 }

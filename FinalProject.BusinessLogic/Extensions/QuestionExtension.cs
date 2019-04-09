@@ -15,10 +15,10 @@ namespace FinalProject.BusinessLogic.Extensions
             {
                 Text = question.Text,
                 TextAnswersList = question.TextAnswers
-                                                     .Select(x => TextAnswerExtension.ToTextAnswerDto(x))
+                                                     .Select(x => x.ToTextAnswerDto())
                                                      .ToList(),
                 MultichoiceAnswersList = question.MultichoiceAnswers
-                                                     .Select(x => MultichoiseAnswerExtension.ToMultichoiceAnswerDto(x))
+                                                     .Select(x =>x.ToMultichoiceAnswerDto())
                                                      .ToList()
             };
 

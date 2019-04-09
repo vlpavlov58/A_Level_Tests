@@ -18,7 +18,7 @@ namespace FinalProject.BusinessLogic.Services
 
             var themeList = themeRepository.GetListOfTheme();
 
-            return themeList.Select(x => ThemeExtension.ToThemeDto(x)).ToList();
+            return themeList.Select(x => x.ToThemeDto()).ToList();
         }
     }
 }

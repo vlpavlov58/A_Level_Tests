@@ -15,8 +15,8 @@ namespace FinalProject.BusinessLogic.Extensions
             {
                 Name = group.Name,
                 BeginingDate = group.BeginigDate.Value,
-                StudentsList = group.Students.Select(x => StudentExtension.ToStudentDto(x)).ToList(),
-                TeachersList = group.Teachers.Select(x => TeacherExtension.ToTeacherDto(x)).ToList()
+                StudentsList = group.Students.Select(x => x.ToStudentDto()).ToList(),
+                TeachersList = group.Teachers.Select(x => x.ToTeacherDto()).ToList()
             };
 
             return groupDto;
