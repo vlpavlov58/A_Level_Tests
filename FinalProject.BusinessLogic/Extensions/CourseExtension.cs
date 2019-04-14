@@ -15,7 +15,7 @@ namespace FinalProject.BusinessLogic.Extensions
             {
                 Name = course.Name,
                 GroupsList = course.Groups.Select(x => x.ToGroupDto()).ToList(),
-                ModulesList = course.Modules.Select(x =>x.ToModuleDto()).ToList(),
+                ModulesList = course.Modules.Select(x => x.ToModuleDto()).ToList(),
                 TeachersList = course.Teachers.Select(x => x.ToTeacherDto()).ToList()
             };
 

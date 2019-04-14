@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D46F3B4-E068-4544-B145-320B7373BFE2}</ProjectGuid>
+    <ProjectGuid>{15D133AF-DEB3-4C7C-A22F-EA907BABAC72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinalProject.Models</RootNamespace>
@@ -41,19 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModels\Answer.cs" />
-    <Compile Include="DataModels\Course.cs" />
-    <Compile Include="DataModels\Group.cs" />
-    <Compile Include="DataModels\Module.cs" />
-    <Compile Include="DataModels\Question.cs" />
-    <Compile Include="DataModels\Student.cs" />
-    <Compile Include="DataModels\Teacher.cs" />
-    <Compile Include="DataModels\Test.cs" />
-    <Compile Include="DataModels\Theme.cs" />
-    <Compile Include="DataModels\User.cs" />
-    <Compile Include="DataModels\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CourseViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FinalProject.BusinessLogic\FinalProject.BusinessLogic.csproj">
+      <Project>{D3D9AF17-00E5-4855-80CE-7F116CF63B13}</Project>
+      <Name>FinalProject.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinalProject.EFLayer\FinalProject.DataLayer.csproj">
+      <Project>{1DB50E72-BD16-43D1-9135-CD2D57E38F42}</Project>
+      <Name>FinalProject.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

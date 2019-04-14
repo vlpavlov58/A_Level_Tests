@@ -11,7 +11,7 @@ namespace FinalProject.BusinessLogic.Services
     {
         List<CourseDto> GetCourseList();
     }
-    internal class CourseService : ICourseService
+    public class CourseService : ICourseService
     {
         public List<CourseDto> GetCourseList()
         {
