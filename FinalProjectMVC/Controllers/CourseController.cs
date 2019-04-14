@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalProject.BusinessLogic.Services;
+using FinalProject.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,14 @@ namespace FinalProjectMVC.Controllers
 {
     public class CourseController : Controller
     {
+        private readonly ICourseService _courseSrvice
+            = new CourseService();
+        private CourseViewModel courseViewModel;
         // GET: Course
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View();
+            var course = _courseSrvice.GetCourseList();            
+            return View(course);
         }
     }
 }

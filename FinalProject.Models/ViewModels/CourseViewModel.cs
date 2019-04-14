@@ -27,6 +27,5 @@ namespace FinalProject.Models.ViewModels
             modulesList = courseDto.ModulesList;
             groupsList = courseDto.GroupsList;
         }
-
     }
 }

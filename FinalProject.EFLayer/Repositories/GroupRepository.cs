@@ -16,7 +16,6 @@ namespace FinalProject.DataLayer.Repositories
             {
                 return context.Groups.ToList();
             }
-
         }
 
         public Group GetGroupById(int Id)

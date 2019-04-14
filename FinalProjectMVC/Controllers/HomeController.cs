@@ -11,9 +11,7 @@ namespace FinalProjectWeb.Controllers
     public class HomeController : Controller
     {
 
-        private readonly ICourseService  courseService
-            = new CourseService();
-
+        
 
         public ActionResult Index()
         {           
@@ -23,8 +21,8 @@ namespace FinalProjectWeb.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            var course = courseService.GetCourseList();
-            return View(course);
+            
+            return View();
         }
 
         public ActionResult Contact()

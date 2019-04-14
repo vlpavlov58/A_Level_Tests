@@ -1,0 +1,27 @@
+﻿@using System.Collections.Generic
+
+@model FinalProject.BusinessLogic.Dto.GroupDto
+
+@{
+    ViewBag.Title = "List";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @{
+        foreach (var group in Model)
+        {
+            <ul>
+                <li>@group.Name</li>
+            </ul>
+        }
+    }
+</body>
+</html>

@@ -10,16 +10,30 @@ namespace FinalProject.BusinessLogic.Services
     public interface ICourseService
     {
         List<CourseDto> GetCourseList();
+
+        CourseDto GetById(int Id);
+       
     }
     public class CourseService : ICourseService
     {
-        public List<CourseDto> GetCourseList()
+        CourseRepository courseRepository = new CourseRepository();
+
+        public CourseDto GetById(int Id)
         {
-            var courseRepository = new CourseRepository();
+
+           var course = courseRepository.GetCourseById(Id);
+
+            return course.ToCourseDto();
+
+        }
+
+        public List<CourseDto> GetCourseList()
+        {            
 
             var courseList = courseRepository.GetListOfCourses();
 
             return courseList.Select(x => x.ToCourseDto()).ToList();
         }
+                
     }
 }

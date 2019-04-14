@@ -1,8 +1,4 @@
-﻿@using System.Collections.Generic
-
-@model List<FinalProject.Models.ViewModels.CourseViewModel>
-
-@{
+﻿@{
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
@@ -10,19 +6,3 @@
 
 <p>Use this area to provide additional information.</p>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    @{ 
-        foreach (var item in Model)
-        {
-            <ul>
-                <li>@item.Name</li>               
-            </ul>
-        }
-    }
-    
-</body>
-</html>
