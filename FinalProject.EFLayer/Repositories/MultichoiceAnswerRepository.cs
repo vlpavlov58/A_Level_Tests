@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<MultichoiceAnswer> GetListOfMultiChoiceAnswers()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.MultichoiceAnswers.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddMultiChoiceAnswers(MultichoiceAnswer multiChoiseAnswer)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.MultichoiceAnswers.Add(multiChoiseAnswer);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteAddMultiChoiceAnswers(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 MultichoiceAnswer multiChoiceAnswer = context.MultichoiceAnswers.Find(Id);
                 context.MultichoiceAnswers.Remove(multiChoiceAnswer);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public MultichoiceAnswer GetMultiChoiceAnswerById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.MultichoiceAnswers.Find(Id);
             }

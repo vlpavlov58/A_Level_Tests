@@ -12,7 +12,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public IEnumerable<Module> GetListOfModule()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Modules.ToList();
             }
@@ -20,7 +20,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddModule(Module module)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Modules.Add(module);
             }
@@ -28,7 +28,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteModule(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Module module = context.Modules.Find(Id);
                 context.Modules.Remove(module);
@@ -37,7 +37,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Module GetModuleById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Modules.Find(Id);
             }

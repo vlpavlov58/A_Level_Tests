@@ -9,7 +9,7 @@ namespace FinalProjectMVC.Controllers
 {
     public class GroupController : Controller
     {
-        private readonly IStudentService groupService 
+        private readonly IGroupService groupService 
             = new GroupService();
         
 

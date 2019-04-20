@@ -6,9 +6,9 @@ namespace FinalProject.DataLayer.Repositories
 {
     public class AdminRepository
     { 
-        public IEnumerable<Admin> GetListOfAdmin()
+        public List<Admin> GetListOfAdmin()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Admins.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddAdmin(Admin admin)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Admins.Add(admin);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteAdmin(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Admin admin = context.Admins.Find(Id);
                 context.Admins.Remove(admin);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Admin GetAdminById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Admins.Find(Id);
             }

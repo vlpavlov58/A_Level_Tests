@@ -10,17 +10,24 @@ namespace FinalProject.DataLayer.Repositories
     public class CourseRepository
     {
 
-        public IEnumerable<Course> GetListOfCourses()
+        public List<Course> GetListOfCourses()
         {
-            using (var context = new FinalProjectDBEntities())
-            {
-                return context.Courses.ToList();
-            }
+            var context = new FinalProjectDBEntities1();
+
+            //using (var context = new FinalProjectDBEntities1())
+            //{
+                var corses = context.Courses
+                    .Include("Teachers")
+                    .Include("Groups")
+                    .Include("Modules")
+                    .ToList();
+                return corses;
+           // }
         }
 
         public Course GetCourseById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Courses.Find(Id);
             }
@@ -28,7 +35,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddCourse(Course course)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Courses.Add(course);
             }
@@ -36,7 +43,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteCourse(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Course course = context.Courses.Find(Id);
                 context.Courses.Remove(course);

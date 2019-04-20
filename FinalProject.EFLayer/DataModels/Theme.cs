@@ -23,6 +23,7 @@ namespace FinalProject.EFLayer.DataModels
         public int Id { get; set; }
         public int ModuleId { get; set; }
         public string Name { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Module Module { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

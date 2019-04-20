@@ -14,10 +14,13 @@ namespace FinalProjectMVC.Controllers
             = new CourseService();
         private CourseViewModel courseViewModel;
         // GET: Course
+
         public ActionResult List()
         {
-            var course = _courseSrvice.GetCourseList();            
-            return View(course);
+            var course = _courseSrvice.GetCourseList();
+            var courseViewModel = course.Select(x=>new CourseViewModel(x));
+            
+            return View(courseViewModel);
         }
     }
 }

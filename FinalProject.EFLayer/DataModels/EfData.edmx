@@ -11,6 +11,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -18,6 +19,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="CourseTeacher">
           <Key>
@@ -35,6 +37,7 @@
           <Property Name="CourseId" Type="int" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="BeginigDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Module">
           <Key>
@@ -44,6 +47,7 @@
           <Property Name="CourseId" Type="int" />
           <Property Name="QuantityLessons" Type="int" />
           <Property Name="TestId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="MultichoiceAnswer">
           <Key>
@@ -53,6 +57,7 @@
           <Property Name="QuestionId" Type="int" />
           <Property Name="AnswerText" Type="nvarchar(max)" />
           <Property Name="IsCorrect" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -64,6 +69,7 @@
           <Property Name="ThemeId" Type="int" />
           <Property Name="QuestionTypeId" Type="int" />
           <Property Name="TestId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="QuestionType">
           <Key>
@@ -71,6 +77,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -78,6 +85,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="StudentGroup">
           <Key>
@@ -93,6 +101,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="TeacherGroup">
           <Key>
@@ -108,6 +117,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="TestPassing">
           <Key>
@@ -118,6 +128,7 @@
           <Property Name="TestId" Type="int" Nullable="false" />
           <Property Name="TeacherId" Type="int" />
           <Property Name="Date" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="TextAnswer">
           <Key>
@@ -127,6 +138,7 @@
           <Property Name="QuestionId" Type="int" />
           <Property Name="Textbox" Type="nvarchar(max)" />
           <Property Name="IsCorrect" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Theme">
           <Key>
@@ -135,6 +147,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ModuleId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -146,6 +159,7 @@
           <Property Name="Login" Type="nchar" MaxLength="10" />
           <Property Name="Password" Type="nchar" MaxLength="10" />
           <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
@@ -153,6 +167,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <Association Name="FK_Admin_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
@@ -569,6 +584,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="User" Relationship="Self.FK_Admin_User" FromRole="Admin" ToRole="User" />
         </EntityType>
         <EntityType Name="Course">
@@ -577,6 +593,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Course" FromRole="Course" ToRole="Group" />
           <NavigationProperty Name="Modules" Relationship="Self.FK_Module_Course" FromRole="Course" ToRole="Module" />
           <NavigationProperty Name="Tests" Relationship="Self.FK_Test_Course" FromRole="Course" ToRole="Test" />
@@ -590,6 +607,7 @@
           <Property Name="CourseId" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BeginigDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Group_Course" FromRole="Group" ToRole="Course" />
           <NavigationProperty Name="Students" Relationship="Self.StudentGroup" FromRole="Group" ToRole="Student" />
           <NavigationProperty Name="Teachers" Relationship="Self.TeacherGroup" FromRole="Group" ToRole="Teacher" />
@@ -602,6 +620,7 @@
           <Property Name="CourseId" Type="Int32" />
           <Property Name="QuantityLessons" Type="Int32" />
           <Property Name="TestId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Module_Course" FromRole="Module" ToRole="Course" />
           <NavigationProperty Name="Test" Relationship="Self.FK_Module_Test" FromRole="Module" ToRole="Test" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Module" FromRole="Module" ToRole="Question" />
@@ -615,6 +634,7 @@
           <Property Name="QuestionId" Type="Int32" />
           <Property Name="AnswerText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsCorrect" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Question" Relationship="Self.FK_MultichoiceAnswer_Question" FromRole="MultichoiceAnswer" ToRole="Question" />
         </EntityType>
         <EntityType Name="Question">
@@ -627,6 +647,7 @@
           <Property Name="ThemeId" Type="Int32" />
           <Property Name="QuestionTypeId" Type="Int32" />
           <Property Name="TestId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Module" Relationship="Self.FK_Question_Module" FromRole="Question" ToRole="Module" />
           <NavigationProperty Name="MultichoiceAnswers" Relationship="Self.FK_MultichoiceAnswer_Question" FromRole="Question" ToRole="MultichoiceAnswer" />
           <NavigationProperty Name="QuestionType" Relationship="Self.FK_Question_QuestionType" FromRole="Question" ToRole="QuestionType" />
@@ -640,6 +661,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Question_QuestionType" FromRole="QuestionType" ToRole="Question" />
         </EntityType>
         <EntityType Name="Student">
@@ -648,6 +670,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="User" Relationship="Self.FK_Student_User" FromRole="Student" ToRole="User" />
           <NavigationProperty Name="TestPassings" Relationship="Self.FK_TestPassing_Student" FromRole="Student" ToRole="TestPassing" />
           <NavigationProperty Name="Groups" Relationship="Self.StudentGroup" FromRole="Student" ToRole="Group" />
@@ -658,6 +681,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="User" Relationship="Self.FK_Teacher_User" FromRole="Teacher" ToRole="User" />
           <NavigationProperty Name="TestPassings" Relationship="Self.FK_TestPassing_Teacher" FromRole="Teacher" ToRole="TestPassing" />
           <NavigationProperty Name="Courses" Relationship="Self.CourseTeacher" FromRole="Teacher" ToRole="Course" />
@@ -669,6 +693,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourseId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Test_Course" FromRole="Test" ToRole="Course" />
           <NavigationProperty Name="Modules" Relationship="Self.FK_Module_Test" FromRole="Test" ToRole="Module" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Test" FromRole="Test" ToRole="Question" />
@@ -683,6 +708,7 @@
           <Property Name="TestId" Type="Int32" Nullable="false" />
           <Property Name="TeacherId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Student" Relationship="Self.FK_TestPassing_Student" FromRole="TestPassing" ToRole="Student" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_TestPassing_Teacher" FromRole="TestPassing" ToRole="Teacher" />
           <NavigationProperty Name="Test" Relationship="Self.FK_TestPassing_Test" FromRole="TestPassing" ToRole="Test" />
@@ -695,6 +721,7 @@
           <Property Name="QuestionId" Type="Int32" />
           <Property Name="Textbox" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsCorrect" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Question" Relationship="Self.FK_TextAnswer_Question" FromRole="TextAnswer" ToRole="Question" />
         </EntityType>
         <EntityType Name="Theme">
@@ -704,6 +731,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ModuleId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Module" Relationship="Self.FK_Theme_Module" FromRole="Theme" ToRole="Module" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Theme" FromRole="Theme" ToRole="Question" />
         </EntityType>
@@ -717,6 +745,7 @@
           <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_User" FromRole="User" ToRole="Admin" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_User" FromRole="User" ToRole="Student" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Teacher_User" FromRole="User" ToRole="Teacher" />
@@ -728,6 +757,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
         </EntityType>
         <Association Name="FK_Admin_User">
@@ -958,7 +988,7 @@
           <End Role="Group" Type="Self.Group" Multiplicity="*" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="FinalProjectDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FinalProjectDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
@@ -1064,12 +1094,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FinalProjectDBModelStoreContainer" CdmEntityContainer="FinalProjectDBEntities">
+        <EntityContainerMapping StorageEntityContainer="FinalProjectDBModelStoreContainer" CdmEntityContainer="FinalProjectDBEntities1">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="FinalProjectDBModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1078,6 +1109,7 @@
               <MappingFragment StoreEntitySet="Course">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1088,6 +1120,7 @@
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BeginigDate" ColumnName="BeginigDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1098,6 +1131,7 @@
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="QuantityLessons" ColumnName="QuantityLessons" />
                 <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1108,6 +1142,7 @@
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
                 <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1120,6 +1155,7 @@
                 <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
                 <ScalarProperty Name="QuestionTypeId" ColumnName="QuestionTypeId" />
                 <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1128,6 +1164,7 @@
               <MappingFragment StoreEntitySet="QuestionType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1136,6 +1173,7 @@
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1144,6 +1182,7 @@
               <MappingFragment StoreEntitySet="Teacher">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1152,6 +1191,7 @@
               <MappingFragment StoreEntitySet="Test">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1163,6 +1203,7 @@
                 <ScalarProperty Name="TestId" ColumnName="TestId" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1173,6 +1214,7 @@
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Textbox" ColumnName="Textbox" />
                 <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1182,6 +1224,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1194,6 +1237,7 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1202,6 +1246,7 @@
               <MappingFragment StoreEntitySet="UserType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

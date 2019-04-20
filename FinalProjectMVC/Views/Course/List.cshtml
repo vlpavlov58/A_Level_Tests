@@ -1,6 +1,5 @@
-﻿@using System.Collections.Generic
-
-@model FinalProject.BusinessLogic.Dto.GroupDto
+﻿
+@model IEnumerable<FinalProject.Models.ViewModels.CourseViewModel>
 
 @{
     ViewBag.Title = "List";
@@ -16,12 +15,15 @@
 </head>
 <body>
     @{
-        foreach (var group in Model)
+        foreach (var course in Model)
         {
             <ul>
-                <li>@group.Name</li>
+                <li>@course.Name</li>
+                
             </ul>
         }
     }
+
+
 </body>
 </html>

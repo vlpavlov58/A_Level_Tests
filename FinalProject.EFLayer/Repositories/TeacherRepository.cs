@@ -9,17 +9,23 @@ namespace FinalProject.DataLayer.Repositories
 {
     public class TeacherRepository
     {
-        public IEnumerable<Teacher> GetListOfTeachers()
+        public List<Teacher> GetListOfTeachers()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
-                return context.Teachers.ToList();
+                var teachers = context.Teachers.
+                    Include("User").
+                    Include("TestPassings").
+                    Include("Courses").
+                    Include("Groups").
+                    ToList();
+                return teachers;
             }
         }
 
         public void AddTeacher(Teacher teacher)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Teachers.Add(teacher);
             }
@@ -27,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteTeacher(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Teacher teacher = context.Teachers.Find(Id);
                 context.Teachers.Remove(teacher);
@@ -36,7 +42,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Teacher GetTeacheryId(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Teachers.Find(Id);
             }

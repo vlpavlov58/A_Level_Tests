@@ -10,17 +10,23 @@ namespace FinalProject.DataLayer.Repositories
     public class GroupRepository
     {
 
-        public IEnumerable<Group> GetListOfGroup()
+        public List<Group> GetListOfGroup()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
-                return context.Groups.ToList();
+                var groups = context.Groups
+                    .Include("Course")
+                    .Include("Students")
+                    .Include("Teachers")
+                    .ToList();
+
+                return groups;
             }
         }
 
         public Group GetGroupById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Groups.Find(Id);
             }
@@ -28,7 +34,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddGroup(Group group)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Groups.Add(group);
             }
@@ -36,7 +42,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteGroup(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Group group = context.Groups.Find(Id);
 

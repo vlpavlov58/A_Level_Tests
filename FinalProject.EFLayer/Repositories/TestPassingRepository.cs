@@ -11,7 +11,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<TestPassing> GetListOfTestPassing()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.TestPassings.ToList();
             }
@@ -19,7 +19,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddTestPassing(TestPassing testPassing)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.TestPassings.Add(testPassing);
             }
@@ -27,7 +27,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteTestPassing(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 TestPassing testPassing = context.TestPassings.Find(Id);
                 context.TestPassings.Remove(testPassing);
@@ -36,7 +36,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public TestPassing GetTestPassingById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.TestPassings.Find(Id);
             }
