@@ -11,10 +11,12 @@ namespace FinalProjectMVC.Controllers
     public class CourseController : Controller
     {
         private readonly ICourseService _courseSrvice
-            = new CourseService();
-        private CourseViewModel courseViewModel;
+            = new CourseService();       
         // GET: Course
-
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult List()
         {
             var course = _courseSrvice.GetCourseList();
