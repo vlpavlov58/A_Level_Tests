@@ -12,7 +12,7 @@ namespace FinalProjectMVC.Controllers
     {
         private readonly ITeacherService teacherService
             = new TeacherService();
-        private readonly TeacherViewModel teacherViewModel;
+    
         // GET: Teacher
         public ActionResult Index()
         {

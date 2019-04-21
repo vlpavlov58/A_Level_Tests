@@ -38,16 +38,17 @@ namespace FinalProject.DataLayer.Repositories
             using (var context = new FinalProjectDBEntities1())
             {
                 context.Courses.Add(course);
+                context.SaveChanges();
             }
         }
 
-        public void DeleteCourse(int Id)
+        public void DeleteCourse(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {
                 Course course = context.Courses.Find(Id);
                 context.Courses.Remove(course);
-
+                context.SaveChanges();
             }
         }
 

@@ -3,7 +3,7 @@ using FinalProject.DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using FinalProject.BusinessLogic.Extensions;
-
+using FinalProject.EFLayer.DataModels;
 
 namespace FinalProject.BusinessLogic.Services
 {
@@ -12,11 +12,27 @@ namespace FinalProject.BusinessLogic.Services
         List<CourseDto> GetCourseList();
 
         CourseDto GetById(int Id);
-       
+
+
+        void Delete(int? Id);
+
+        void Add(Course course);
+        
     }
     public class CourseService : ICourseService
     {
         CourseRepository courseRepository = new CourseRepository();
+
+        public void Add(Course course)
+        {
+            courseRepository.AddCourse(course);
+        }
+       
+
+        public void Delete(int? Id)
+        {
+            courseRepository.DeleteCourse(Id);
+        }
 
         public CourseDto GetById(int Id)
         {

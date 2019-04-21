@@ -12,15 +12,34 @@
     <title></title>
 </head>
 <body>
-    @{
-        foreach (var course in Model)
-        {
-            <ul>
-                <li>@course.Name</li>                            
-            </ul>
-        }
-    }
 
+    <table>
+        <tr>
+            <td>
+                <p>Имя</p>
+                
+            </td>
+            <td><p>Действие</p></td>
+        </tr>
+
+        @{
+            foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.Name  </td>
+                    <td>
+                        @Html.ActionLink("Удалить", "Delete", routeValues: new { id = course.Id })
+                    </td>
+                </tr>
+            }
+
+
+        }
+    </table>
+    <br />
+    <br />
+    <p>@Html.ActionLink("Вернуться назад", "Index", "Course")</p>
+    
 
 </body>
 </html>

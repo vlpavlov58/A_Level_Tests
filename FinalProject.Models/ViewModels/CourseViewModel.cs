@@ -10,6 +10,8 @@ namespace FinalProject.Models.ViewModels
 {
     public class CourseViewModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public List<TeacherDto> teachersList { get; set; }
@@ -22,6 +24,7 @@ namespace FinalProject.Models.ViewModels
 
         public CourseViewModel(CourseDto courseDto)
         {
+            Id = courseDto.Id;
             Name = courseDto.Name;
             teachersList = courseDto.TeachersList;
             modulesList = courseDto.ModulesList;

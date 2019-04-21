@@ -1,0 +1,21 @@
+﻿@model FinalProject.EFLayer.DataModels.Course
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("Add","Course",FormMethod.Post))
+    {
+        <p>Введите название курса</p>
+        @Html.TextBoxFor(m=>m.Name)
+
+        <input type="submit" value="Отправить" />
+    }
+</body>
+</html>

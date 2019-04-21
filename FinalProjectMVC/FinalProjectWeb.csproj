@@ -191,6 +191,7 @@
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Course\List.cshtml" />
     <Content Include="Views\Teacher\List.cshtml" />
+    <Content Include="Views\Course\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -214,6 +215,10 @@
     <ProjectReference Include="..\FinalProject.BusinessLogic\FinalProject.BusinessLogic.csproj">
       <Project>{D3D9AF17-00E5-4855-80CE-7F116CF63B13}</Project>
       <Name>FinalProject.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinalProject.EFLayer\FinalProject.DataLayer.csproj">
+      <Project>{1DB50E72-BD16-43D1-9135-CD2D57E38F42}</Project>
+      <Name>FinalProject.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\FinalProject.Models\FinalProject.Models.csproj">
       <Project>{15d133af-deb3-4c7c-a22f-ea907babac72}</Project>
