@@ -9,19 +9,32 @@ namespace FinalProject.DataLayer.Repositories
 {
     public class CourseRepository
     {
-
+        private List<Course> courseList = new List<Course>();
+        private List<Course> corses = new List<Course>();
         public List<Course> GetListOfCourses()
         {
-            var context = new FinalProjectDBEntities1();
-
+            var context = new FinalProjectDBEntities1();           
             //using (var context = new FinalProjectDBEntities1())
             //{
-                var corses = context.Courses
+           corses = context.Courses
                     .Include("Teachers")
                     .Include("Groups")
                     .Include("Modules")
                     .ToList();
-                return corses;
+            for (int i = 0; i < corses.Count-1; i++)
+            {
+                if (corses[i].IsDeleted == true)
+                {
+                    continue;
+                }                   
+                else
+                {
+                    courseList.Add(corses[i]);
+                }
+                    
+
+            }
+                return courseList;
            // }
         }
 
@@ -37,7 +50,10 @@ namespace FinalProject.DataLayer.Repositories
         {
             using (var context = new FinalProjectDBEntities1())
             {
-                context.Courses.Add(course);
+                course.IsDeleted = false;
+                courseList.Add(course);
+                context.Courses.Add(course);                
+                corses.Add(course);               
                 context.SaveChanges();
             }
         }
@@ -47,8 +63,10 @@ namespace FinalProject.DataLayer.Repositories
             using (var context = new FinalProjectDBEntities1())
             {
                 Course course = context.Courses.Find(Id);
-                context.Courses.Remove(course);
+                course.IsDeleted = true;                
                 context.SaveChanges();
+                courseList.Remove(course);
+                
             }
         }
 
