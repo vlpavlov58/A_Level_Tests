@@ -20,13 +20,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Главная", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Student", "List", "User")</li>
-                    <li>@Html.ActionLink("Admin", "Admin", "User")</li>
-                    <li>@Html.ActionLink("Teacher", "Teacher", "User")</li>
+                    <li>@Html.ActionLink("Студент", "List", "User")</li>
+                    <li>@Html.ActionLink("Учитель", "Teacher", "User")</li>
                 </ul>
             </div>
         </div>
