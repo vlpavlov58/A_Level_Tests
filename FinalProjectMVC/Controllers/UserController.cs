@@ -28,6 +28,6 @@ namespace FinalProjectMVC.Controllers
             return View(userViewModel);
         }
 
-        [HttpPost]
-    }
+      
+    
 }
