@@ -1,6 +1,6 @@
 ﻿@using System.Collections.Generic
 
-@model List<FinalProject.Models.ViewModels.CourseViewModel>
+@model FinalProject.Models.ViewModels.CourseViewModel
 
 @{
     ViewBag.Title = "About";
@@ -19,7 +19,7 @@
         foreach (var item in Model)
         {
             <ul>
-                <li>@item.Name</li>               
+                <li>@item.Name</li>
             </ul>
         }
     }
