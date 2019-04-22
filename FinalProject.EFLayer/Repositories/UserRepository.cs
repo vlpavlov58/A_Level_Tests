@@ -6,12 +6,25 @@ namespace FinalProject.DataLayer.Repositories
 {
     public class UserRepository
     {
-        public IEnumerable<User> GetListOfUsers()
+        private List<User> userList = new List<User>();
+        private List<User> usersEF;
+        public List<User> GetUsersList()
         {
-            using (var context = new FinalProjectDBEntities1())
-            {
-                return context.Users.ToList();
-            }
+            var context = new FinalProjectDBEntities1();
+            //using (var context = new FinalProjectDBEntities1())
+            //{
+
+            usersEF = context.Users
+                    .Include("Teachers")
+                    .Include("Admins")
+                    .Include("Students")
+                    .Include("UserType")
+                    .ToList();
+
+
+            ListInitialization();
+            return userList;
+            // }
         }
 
         public void AddUser(User user)
@@ -22,7 +35,7 @@ namespace FinalProject.DataLayer.Repositories
             }
         }
 
-        public void DeleteUser(int Id)
+        public void DeleteUser(int? Id)
         {
             using (var context = new FinalProjectDBEntities1())
             {
@@ -37,6 +50,19 @@ namespace FinalProject.DataLayer.Repositories
             {
                 return context.Users.Find(Id);
             }
+        }
+
+
+        private void ListInitialization()
+        {
+            foreach (var item in usersEF)
+            {
+                if (item.IsDeleted == true)
+                    continue;
+                else
+                    userList.Add(item);
+            }
+
         }
     }
 }
