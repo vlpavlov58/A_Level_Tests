@@ -31,7 +31,8 @@ namespace FinalProject.DataLayer.Repositories
         {
             using (var context = new FinalProjectDBEntities1())
             {
-                context.Users.Add(user);
+                context.Users.Add(user);                             
+                context.SaveChanges();
             }
         }
 
@@ -40,7 +41,9 @@ namespace FinalProject.DataLayer.Repositories
             using (var context = new FinalProjectDBEntities1())
             {
                 User user = context.Users.Find(Id);
-                context.Users.Remove(user);
+                user.IsDeleted = true;
+                context.SaveChanges();
+                userList.Remove(user);
             }
         }
 
@@ -49,6 +52,7 @@ namespace FinalProject.DataLayer.Repositories
             using (var context = new FinalProjectDBEntities1())
             {
                 return context.Users.Find(Id);
+
             }
         }
 

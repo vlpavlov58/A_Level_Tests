@@ -14,13 +14,10 @@ namespace FinalProject.BusinessLogic.Services
     public interface IUserService
     {
         List<UserDto> GetUserList();
-
         UserDto GetById(int Id);
-
-
         void Delete(int? Id);
-
         void Add(User user);
+
     }
     public class UserService : IUserService
     {

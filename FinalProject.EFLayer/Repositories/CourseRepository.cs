@@ -14,6 +14,7 @@ namespace FinalProject.DataLayer.Repositories
         public List<Course> GetListOfCourses()
         {
             var context = new FinalProjectDBEntities1();
+           
             //using (var context = new FinalProjectDBEntities1())
             //{
             
