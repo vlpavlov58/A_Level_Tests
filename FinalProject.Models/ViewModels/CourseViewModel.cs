@@ -2,6 +2,7 @@
 using FinalProject.EFLayer.DataModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,11 @@ namespace FinalProject.Models.ViewModels
 {
     public class CourseViewModel
     {
+       
         public int Id { get; set; }
 
+
+        [Required(ErrorMessage = "Введите название курса")]       
         public string Name { get; set; }
 
         public List<TeacherDto> teachersList { get; set; }

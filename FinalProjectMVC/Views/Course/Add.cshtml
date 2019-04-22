@@ -10,12 +10,15 @@
     <title></title>
 </head>
 <body>
-    @using (Html.BeginForm("Add","Course",FormMethod.Post))
+    @using (Html.BeginForm("Add", "Course", FormMethod.Post))
     {
         <p>Введите название курса</p>
-        @Html.TextBoxFor(m=>m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+       
 
         <input type="submit" value="Отправить" />
     }
+
 </body>
 </html>

@@ -13,10 +13,11 @@ namespace FinalProject.DataLayer.Repositories
         private List<Course> coursesEF;
         public List<Course> GetListOfCourses()
         {
-            var context = new FinalProjectDBEntities1();           
+            var context = new FinalProjectDBEntities1();
             //using (var context = new FinalProjectDBEntities1())
             //{
-           coursesEF = context.Courses
+            
+            coursesEF = context.Courses
                     .Include("Teachers")
                     .Include("Groups")
                     .Include("Modules")

@@ -37,8 +37,13 @@ namespace FinalProjectMVC.Controllers
         [HttpPost]
         public ActionResult Add(Course course)
         {
-            _courseSrvice.Add(course);
-            return View("Index");
+            if(ModelState.IsValid)
+            {
+                _courseSrvice.Add(course);
+                return View("Index");
+            }
+            return View(course);
+         
         }
 
        
