@@ -25,6 +25,7 @@ namespace FinalProject.EFLayer.DataModels
         public Nullable<int> CourseId { get; set; }
         public Nullable<int> QuantityLessons { get; set; }
         public Nullable<int> TestId { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual Test Test { get; set; }

@@ -128,11 +128,11 @@
     <Compile Include="Repositories\UserTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="DataModels\EFData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EFData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="DataModels\EFData.edmx.diagram">
       <DependentUpon>EFData.edmx</DependentUpon>
     </None>

@@ -27,6 +27,7 @@ namespace FinalProject.EFLayer.DataModels
         public Nullable<int> ThemeId { get; set; }
         public Nullable<int> QuestionTypeId { get; set; }
         public Nullable<int> TestId { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Module Module { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

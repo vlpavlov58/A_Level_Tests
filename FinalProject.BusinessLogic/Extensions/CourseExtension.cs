@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var courseDto = new CourseDto
             {
+                Id = course.Id,
                 Name = course.Name,
                 GroupsList = course.Groups.Select(x => x.ToGroupDto()).ToList(),
                 ModulesList = course.Modules.Select(x => x.ToModuleDto()).ToList(),

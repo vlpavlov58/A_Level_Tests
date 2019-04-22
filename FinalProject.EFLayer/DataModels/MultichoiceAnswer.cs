@@ -18,6 +18,7 @@ namespace FinalProject.EFLayer.DataModels
         public Nullable<int> QuestionId { get; set; }
         public string AnswerText { get; set; }
         public Nullable<int> IsCorrect { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Question Question { get; set; }
     }

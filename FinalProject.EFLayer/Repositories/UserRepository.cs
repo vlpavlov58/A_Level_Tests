@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<User> GetListOfUsers()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Users.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddUser(User user)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Users.Add(user);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteUser(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 User user = context.Users.Find(Id);
                 context.Users.Remove(user);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public User GetUserById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Users.Find(Id);
             }

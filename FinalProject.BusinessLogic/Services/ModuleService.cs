@@ -9,6 +9,8 @@ namespace FinalProject.BusinessLogic.Services
     public interface IModuleService
     {
         List<ModuleDto> moduleList();
+
+
     }
     internal class ModuleService : IModuleService
     {

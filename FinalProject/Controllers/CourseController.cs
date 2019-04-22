@@ -9,35 +9,35 @@ using System.Web.Http;
 
 namespace FinalProject.Controllers
 {
-    public class GroupController : ApiController
+    public class CourseController : ApiController
     {
-        private readonly IGroupService groupService;
 
-        public GroupController()
+        public ICourseService courseService;
+
+        public CourseController()
         {
-            groupService = new GroupService();
+            courseService = new CourseService();
         }
-
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            var courses = groupService.GetGroupList();
+            var courses = courseService.GetCourseList();
+
             return Ok();
         }
 
         [HttpPost]
-        public IHttpActionResult Add([FromBody] Group group)
+        public IHttpActionResult Add([FromBody] Course course)
         {
-            groupService.Add(group);
+            courseService.Add(course);
             return Ok();
         }
 
         [HttpDelete]
         public IHttpActionResult Delelte(int Id)
         {
-            groupService.Delete(Id);
+            courseService.Delete(Id);
             return Ok();
         }
-
     }
 }

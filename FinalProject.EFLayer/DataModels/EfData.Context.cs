@@ -13,10 +13,10 @@ namespace FinalProject.EFLayer.DataModels
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalProjectDBEntities : DbContext
+    public partial class FinalProjectDBEntities1 : DbContext
     {
-        public FinalProjectDBEntities()
-            : base("name=FinalProjectDBEntities")
+        public FinalProjectDBEntities1()
+            : base("name=FinalProjectDBEntities1")
         {
         }
     

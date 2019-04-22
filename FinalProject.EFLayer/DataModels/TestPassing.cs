@@ -19,6 +19,7 @@ namespace FinalProject.EFLayer.DataModels
         public int TestId { get; set; }
         public Nullable<int> TeacherId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Student Student { get; set; }
         public virtual Teacher Teacher { get; set; }

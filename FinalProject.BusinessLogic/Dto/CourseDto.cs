@@ -8,6 +8,8 @@ namespace FinalProject.BusinessLogic.Dto
 {
     public class CourseDto
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public List<GroupDto> GroupsList { get; set; }

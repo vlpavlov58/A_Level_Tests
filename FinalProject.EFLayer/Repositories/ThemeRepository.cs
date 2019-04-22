@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<Theme> GetListOfTheme()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Themes.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddTheme(Theme theme)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Themes.Add(theme);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteTheme(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Theme theme = context.Themes.Find(Id);
                 context.Themes.Remove(theme);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Theme GetThemeById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Themes.Find(Id);
             }

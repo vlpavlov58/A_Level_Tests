@@ -11,7 +11,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<TextAnswer> GetListOfTextAnswer()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.TextAnswers.ToList();
             }
@@ -19,7 +19,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddTextAnswer(TextAnswer textAnswer)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.TextAnswers.Add(textAnswer);
             }
@@ -27,7 +27,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteTextAnswer(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 TextAnswer textanswer = context.TextAnswers.Find(Id);
                 context.TextAnswers.Remove(textanswer);
@@ -36,7 +36,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public TextAnswer GetTextAnswerById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.TextAnswers.Find(Id);
             }

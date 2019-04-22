@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<UserType> GetListOfUserType()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.UserTypes.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddUserType(UserType userType)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.UserTypes.Add(userType);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteUserType(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 UserType userType = context.UserTypes.Find(Id);
                 context.UserTypes.Remove(userType);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public UserType GetUserTypeById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.UserTypes.Find(Id);
             }

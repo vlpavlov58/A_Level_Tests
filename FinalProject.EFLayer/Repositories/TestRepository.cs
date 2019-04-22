@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<Test> GetListOfTest()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Tests.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddTest(Test test)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Tests.Add(test);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteTest(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Test test = context.Tests.Find(Id);
                 context.Tests.Remove(test);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Test GetTestById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Tests.Find(Id);
             }

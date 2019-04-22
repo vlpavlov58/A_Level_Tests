@@ -8,7 +8,7 @@ namespace FinalProject.DataLayer.Repositories
     {
         public IEnumerable<QuestionType> GetListOfQuestionTypes()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.QuestionTypes.ToList();
             }
@@ -16,7 +16,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddQuestionType(QuestionType questiontype)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.QuestionTypes.Add(questiontype);
             }
@@ -24,7 +24,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteQuestionType(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 QuestionType questiontype = context.QuestionTypes.Find(Id);
                 context.QuestionTypes.Remove(questiontype);
@@ -33,7 +33,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public QuestionType GetQuestionTypeById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.QuestionTypes.Find(Id);
             }

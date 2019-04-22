@@ -9,7 +9,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public IEnumerable<Question> GetListOfQuestion()
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Questions.ToList();
             }
@@ -17,7 +17,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void AddQuestion(Question question)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 context.Questions.Add(question);
             }
@@ -25,7 +25,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public void DeleteQuestion(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 Question question = context.Questions.Find(Id);
                 context.Questions.Remove(question);
@@ -34,7 +34,7 @@ namespace FinalProject.DataLayer.Repositories
 
         public Question GetQuestionById(int Id)
         {
-            using (var context = new FinalProjectDBEntities())
+            using (var context = new FinalProjectDBEntities1())
             {
                 return context.Questions.Find(Id);
             }
