@@ -13,6 +13,7 @@ namespace FinalProject.BusinessLogic.Extensions
 
             var userDto = new UserDto
             {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Login = user.Login,

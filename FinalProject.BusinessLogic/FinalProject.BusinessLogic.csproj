@@ -80,6 +80,7 @@
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\ThemeService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinalProject.EFLayer\FinalProject.DataLayer.csproj">

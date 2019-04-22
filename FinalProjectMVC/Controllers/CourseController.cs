@@ -40,7 +40,7 @@ namespace FinalProjectMVC.Controllers
             if(ModelState.IsValid)
             {
                 _courseSrvice.Add(course);
-                return View("Index");
+                return View();
             }
             return View(course);
          
