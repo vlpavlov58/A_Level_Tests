@@ -11,7 +11,6 @@ namespace FinalProject.Controllers
 {
     public class CourseController : ApiController
     {
-
         public ICourseService courseService;
 
         public CourseController()
@@ -22,7 +21,6 @@ namespace FinalProject.Controllers
         public IHttpActionResult GetAll()
         {
             var courses = courseService.GetCourseList();
-
             return Ok();
         }
 

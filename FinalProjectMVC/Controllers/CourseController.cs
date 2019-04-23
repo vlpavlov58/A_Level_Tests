@@ -42,8 +42,7 @@ namespace FinalProjectMVC.Controllers
                 _courseSrvice.Add(course);
                 return View();
             }
-            return View(course);
-         
+            return View(course);         
         }
 
        
